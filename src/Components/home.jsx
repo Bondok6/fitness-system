@@ -30,7 +30,7 @@ export class Home extends Component {
     // }
     return (
       <React.Fragment>
-
+        Home Page
       </React.Fragment>
     )
   }
