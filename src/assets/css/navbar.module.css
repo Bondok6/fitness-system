@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/* start header navbar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.navbar {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brandlogo img {
+  width: 80px;
+}
+
+.navbarlinks ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.navbarlinks li{
+  list-style: none;
+}
+.navbarlinks li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  padding: 1rem;
+  display: block;
+}
+
+.navbarlinks li:hover {
+  background-color: #df5277;
+  transition: 1s;
+}
+
+.register {
+  display: flex;
+  padding-right: 20px;
+  text-transform: uppercase;
+}
+
+.login a {
+  color: #EE4673;
+  padding-right: 10px;
+  text-decoration: none;
+}
+
+.signup a {
+  color: #d9a404;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+.line {
+  color: #fff;
+}
+
+.signup a:hover {
+  color: #d9a404;
+  text-decoration: underline;
+}
+.login a:hover{
+  color: #EE4673;
+  text-decoration: underline;
+}
+/* end header navbar */
