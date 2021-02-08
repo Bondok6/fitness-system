@@ -88,11 +88,15 @@
 .scaption {
   position: absolute;
   top: 28%;
-  left: 20%;
+  left: 24%;
 
   max-width: 750px;
 
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -133,19 +137,25 @@
 }
 
 @media(max-width: 1000px) {
-  .s-caption{left: 5%;}
-  .s-caption p {
+  .scaption{left: 5%;}
+  .scaption p {
     margin: 0;
+    font-size: 1.2rem;
   }
 }
 
 .tcaption {
   position: absolute;
-  top: 28%;
-  left: 20%;
+  top: 30%;
+  left: 22%;
 
   max-width: 750px;
-  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -161,7 +171,7 @@
 
 .tcaption p {
   color: #fff;
-  margin: 0 170px;
+  text-align: center;
   font-size: 1.6rem;
   font-weight: lighter;
   margin-bottom: 35px;
@@ -183,8 +193,8 @@
 }
 
 @media(max-width: 1000px) {
-  .t-caption{left: 5%;}
-  .t-caption p {
+  .tcaption{left: 5%;}
+  .tcaption p {
     margin: 0;
     margin-bottom: 35px;
   }

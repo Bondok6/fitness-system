@@ -46,9 +46,8 @@ export class ForgetPassword extends Component {
             <div className={style.anchor}>
             <Link to="/reset">Reset Password</Link>
             </div>
-            
-        </form>
-        <hr/>
+          <hr/>
+        </form>       
       </div>
     </React.Fragment>
     )

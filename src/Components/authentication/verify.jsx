@@ -53,8 +53,9 @@ export class Verify extends Component {
             <div className={style.anchor}>
               <Link to="/login"> go to login </Link>
             </div>
+
+            <hr/>
           </form> 
-          <hr/>
         </div>
      </React.Fragment>
     )

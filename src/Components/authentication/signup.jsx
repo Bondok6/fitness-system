@@ -66,9 +66,8 @@ export class Signup extends Component {
             <div className={style.anchor}>
               <Link to="/verify" className="d-block mb-3">verify account</Link>
             </div>
-
+           <hr/>
           </form>
-          <hr />
         </div>
       </React.Fragment>
     )

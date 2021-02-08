@@ -55,9 +55,8 @@ export class Login extends Component {
             <div className={style.anchor}>
              <Link to="/forget"> forget password</Link>
             </div>
-              
+            <hr />
           </form>
-          <hr />
       </div>
 
      </React.Fragment>

@@ -53,9 +53,8 @@ export class ResetPassword extends Component {
             </div>
 
             <button type="submit" className={style.btn}>Reset</button>
-            
+            <hr/>
           </form>
-          <hr/>
         </div>
      </React.Fragment>
     )
