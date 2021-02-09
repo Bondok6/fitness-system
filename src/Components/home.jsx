@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import style from '../assets/css/home.module.css';
 import Star from '../images/svg/star.svg';
+import Wave1 from '../images/svg/wave-1.svg';
+import Wave2 from '../images/svg/wave-2.svg';
 import QR from '../images/svg/qr.svg';
 import gym1 from '../images/gym-1.jpg';
 import gym2 from '../images/gym-2.jpg';
 import gym3 from '../images/gym-3.jpg';
+import join from '../images/join-now.jpg';
+import doctor from '../images/doctor.png';
+import icon from '../images/Logo/icon.png';
+import caption from '../images/Logo/icon-caption.png';
+import hover from '../images/Logo/icon-hover.png';
 
 export class Home extends Component {
 
@@ -112,7 +119,7 @@ export class Home extends Component {
         </div>
       </section>
        
-        <section className={style.recommend}>
+       <section className={style.recommend}>
         <div className="container">
           <div className={style.qrsection}>
             <img src={QR} alt="qr-code" className={style.qrimg}/>
@@ -168,6 +175,58 @@ export class Home extends Component {
         </div>
       </div>
     </section>
+      
+       <div className={style.onlinetraining}>
+          <div className={`container ${style.flexsection}`}>
+            <div className={style.textsection}>
+            <h2>online training</h2>
+            <p> Live training is the best way to make exercises at home to keep fit and improve personal fitness and
+              health, Since the workout sessions aren’t done in person, you can choose to workout anytime you like. We’re
+              all busy. You don’t want to have to coordinate schedules with someone who trains in a gym across town, or
+              rush to and from work to get to the gym. Another bonus is that many online workouts contain a lot of
+              bodyweight exercises, which can be completed at home.</p>
+          </div>
+            <div className={style.joinnow}>
+            <img src={join} alt="join now"/>
+          </div>
+        </div>
+      </div>
+      
+       <div className={style.waveone}>
+        <img src={Wave1} alt="wave"/>
+       </div>
+       <div className={style.wavetwo}>
+        <img src={Wave2} alt="wave"/>
+       </div>
+        
+       <div className={style.askdoctor}>
+        <div className="container">
+          <img src={doctor} alt="doctor"/>
+            <div className={style.asktext}>
+            <h2>ask doctor</h2>
+            <p>If you want to communicate with a doctor, gym trainer, or a nutritionist you can do this , just signup and
+              the official will respond to you with a diet suitable for your condition</p>
+          </div>
+        </div>
+      </div>
+
+       <footer className="links">
+      <ul>
+            <li className={style.icon}>
+          <img src={icon} alt="icon"/>
+        </li>
+            <li className={style.iconhover}>
+          <img src={hover} alt="icon-hover"/>
+        </li>
+      </ul>
+      <div className={style.iconcaption}>
+        <img src={caption} alt="icon-caption"/>
+      </div>
+      <p>&copy;
+        <script>document.write(new Date().getFullYear());</script> team work smart fitness system .
+      </p>
+      <p>&ldquo;its going to be hard, but hard is not impossible.&rdquo; &mdash; Project owners</p>
+    </footer> 
       </React.Fragment>
     )
   }

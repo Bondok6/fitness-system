@@ -32,6 +32,7 @@ form{
 }
 .inp:focus{
   border-left: 15px solid #d9a404;
+  letter-spacing: 2px;
 }
 
 .btn{
