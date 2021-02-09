@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
-/* start header navbar */
 header {
   position: fixed;
   top: 0;
@@ -9,6 +8,7 @@ header {
   z-index: 1;
   width: 100vw;
   background-color: rgba(0, 0, 0, .8);
+  
 }
 
 .navbar {
@@ -45,9 +45,11 @@ header {
 }
 
 .register {
+  font-family: 'Oswald', sans-serif;
   display: flex;
   padding-right: 20px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .login a {
@@ -58,7 +60,7 @@ header {
 
 .signup a {
   color: #d9a404;
-  padding-left: 10px;
+  padding: 0px 10px;
   text-decoration: none;
 }
 
@@ -74,4 +76,3 @@ header {
   color: #EE4673;
   text-decoration: underline;
 }
-/* end header navbar */
