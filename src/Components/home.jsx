@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import style from '../assets/css/home.module.css';
+import Star from '../images/svg/star.svg';
+import QR from '../images/svg/qr.svg';
+import gym1 from '../images/gym-1.jpg';
+import gym2 from '../images/gym-2.jpg';
+import gym3 from '../images/gym-3.jpg';
 
 export class Home extends Component {
 
@@ -106,7 +111,64 @@ export class Home extends Component {
             </a>
         </div>
       </section>
-    </React.Fragment>
+       
+        <section className={style.recommend}>
+        <div className="container">
+          <div className={style.qrsection}>
+            <img src={QR} alt="qr-code" className={style.qrimg}/>
+            <h4>
+              you can scan QR-code which available on sports machines, and We show him the correct way to perform this
+              exercise.
+            </h4>
+          </div>
+          <button className={style.qrbtn}>learn more</button>
+          <h2>Recommended gym for you</h2>
+            
+          <div className={style.cards}>
+              <div className={style.card}>
+                
+                <img src={gym1} alt="gym" className={style.cardimg}/>  
+                
+              <div className={style.cardcaption}>
+                <h3>Elsheik zayed city</h3>
+                <span>
+                  <img src={Star} alt="stars" className={style.svg}/>
+                  <img src={Star} alt="stars" className={style.svg}/>
+                  <img src={Star} alt="stars" className={style.svg}/>
+                  <img src={Star} alt="stars" className={style.svg}/>
+                </span>
+              </div>
+            </div>
+              <div className={style.card}>
+
+                <img src={gym2} alt="gym" className={style.cardimg} /> 
+                
+                <div className={style.cardcaption}>
+              <h3>Elsheik zayed city</h3>
+              <span>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+              </span>
+            </div>
+          </div>
+              <div className={style.card}>
+              <img src={gym3} alt="gym" className={style.cardimg}/>  
+                <div className={style.cardcaption}>
+              <h3>Elsheik zayed city</h3>
+              <span>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+                <img src={Star} alt="stars" className={style.svg}/>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      </React.Fragment>
     )
   }
 }
