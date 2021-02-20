@@ -53,7 +53,7 @@ export class Login extends Component {
             <button type="submit" className={style.btn}>Login</button>
 
             <div className={style.anchor}>
-             <Link to="/forget"> forget password</Link>
+             <Link  onClick={()=>this.props.openHandler2("/forget")}> forget password</Link>
             </div>
             <hr />
           </form>

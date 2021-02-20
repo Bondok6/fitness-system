@@ -13,10 +13,11 @@ import doctor from '../images/doctor.png';
 import icon from '../images/Logo/icon.png';
 import caption from '../images/Logo/icon-caption.png';
 import hover from '../images/Logo/icon-hover.png';
+import Doc from '../images/svg/doctor.svg'
 
 export class Home extends Component {
 
-  state = {};
+ 
 
   componentDidMount() {
 
@@ -31,6 +32,7 @@ export class Home extends Component {
     
   }
 
+ 
   render() {
     // if (this.state.user) {
     //   return (
@@ -42,8 +44,9 @@ export class Home extends Component {
     // }
     return (
       <React.Fragment>
-       <section id="top">
-          <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+       
+       <section id="top" onClick={()=>this.props.closeHandler2()}>
+          <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" onClick={()=>this.props.closeHandler2()}>
             <div className="carousel-inner">
 
               <div className="carousel-item active">
@@ -201,7 +204,7 @@ export class Home extends Component {
         
        <div className={style.askdoctor}>
         <div className="container">
-          <img src={doctor} alt="doctor"/>
+          <img src={Doc} alt="doctor"/>
             <div className={style.asktext}>
             <h2>ask doctor</h2>
             <p>If you want to communicate with a doctor, gym trainer, or a nutritionist you can do this , just signup and

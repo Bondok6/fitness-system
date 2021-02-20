@@ -1,0 +1,22 @@
+.PoPup {
+  background: rgba(0, 0, 0, 0.92);
+  width: 100%;
+  left: 0;
+  z-index: 11111111111;
+  bottom: 0;
+  position: fixed;
+  border-radius: 35% 35% 0 0;
+  height: 80vh;
+  transition: all .3s;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  padding: 8rem;
+}
+/*# sourceMappingURL=PoPup.css.map */

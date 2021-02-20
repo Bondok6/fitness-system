@@ -44,7 +44,7 @@ export class ForgetPassword extends Component {
             <button className={style.btn}>Send code</button>
 
             <div className={style.anchor}>
-            <Link to="/reset">Reset Password</Link>
+            <Link  onClick={()=>this.props.openHandler2("/reset")}>Reset Password</Link>
             </div>
           <hr/>
         </form>       

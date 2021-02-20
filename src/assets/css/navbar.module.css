@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
+@media only screen and (min-width:120em) {
+  header{
+  background-size: 104%;
+  }
+  
+}
 header {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, .8);
-  
+  min-width: 100vw;
+  height: 170px;
+  background-image: url(../../images/navbar.svg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .navbar {
@@ -21,12 +29,43 @@ header {
 .brandlogo img {
   width: 80px;
 }
+@media only screen and (max-width:67em){
+  .brandlogo {
+   margin: 0;
+  
+  }
+}
 
 .navbarlinks ul {
   display: flex;
   margin: 0;
   padding: 0;
+  padding-left: 94px;
+
 }
+@media only screen and (max-width:67em){
+  .navbarlinks {
+   display: none;
+  
+  }
+}
+
+.toggler{
+  display: none;
+  
+}
+.toggler svg{
+  fill: #d9a404;
+}
+@media only screen and (max-width:67em){
+  .toggler {
+    display: block;
+    padding: 22px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
 .navbarlinks li{
   list-style: none;
 }
@@ -51,6 +90,13 @@ header {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+@media only screen and (max-width:67em){
+  .register {
+   display: none;
+  
+  }
+}
+
 
 .login a {
   color: #EE4673;

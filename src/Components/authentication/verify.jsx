@@ -48,10 +48,10 @@ export class Verify extends Component {
               onChange={(e)=> this.code = e.target.value}/>
             </div>
 
-            <button type="submit" className={style.btn}>Verify</button>
+            <button type="submit" className={style.btn} >Verify</button>
 
             <div className={style.anchor}>
-              <Link to="/login"> go to login </Link>
+              <Link onClick={()=> this.props.openHandler2("/login")}> go to login </Link>
             </div>
 
             <hr/>

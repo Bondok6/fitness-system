@@ -64,7 +64,8 @@ export class Signup extends Component {
             <button type="submit" className={style.btn}>sign up</button>
 
             <div className={style.anchor}>
-              <Link to="/verify" className="d-block mb-3">verify account</Link>
+              <Link className="d-block mb-3" onClick={()=>{
+                this.props.openHandler2("/verify")}}>verify account</Link>
             </div>
            <hr/>
           </form>
