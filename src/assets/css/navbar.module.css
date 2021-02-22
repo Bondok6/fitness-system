@@ -27,7 +27,7 @@ header {
 }
 
 .brandlogo img {
-  width: 80px;
+  width: 100px;  
 }
 @media only screen and (max-width:67em){
   .brandlogo {
@@ -85,10 +85,12 @@ header {
 
 .register {
   font-family: 'Oswald', sans-serif;
+  font-size: 1.2rem;
   display: flex;
   padding-right: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding-top: 30px; 
 }
 @media only screen and (max-width:67em){
   .register {
