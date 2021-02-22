@@ -21,18 +21,21 @@ header {
 
 .navbar {
   padding: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .brandlogo img {
-  width: 100px;  
+  width: 80px; 
+  margin-bottom: -30px;
 }
+
 @media only screen and (max-width:67em){
-  .brandlogo {
+  .brandlogo img{
    margin: 0;
-  
+   padding: 0;
   }
 }
 
@@ -43,10 +46,10 @@ header {
   padding-left: 94px;
 
 }
+
 @media only screen and (max-width:67em){
   .navbarlinks {
    display: none;
-  
   }
 }
 
@@ -63,6 +66,17 @@ header {
     padding: 22px;
     font-size: 1rem;
     cursor: pointer;
+  }
+  li{
+    padding: 10px 0px;
+    cursor: pointer;
+  }
+  li:hover{
+    background-color: #d9a404;
+  }
+  li:hover a{
+    color: #000;
+    font-weight: 800;
   }
 }
 
@@ -86,19 +100,20 @@ header {
 .register {
   font-family: 'Oswald', sans-serif;
   font-size: 1.2rem;
-  display: flex;
-  padding-right: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding-top: 30px; 
+
+  display: flex;
+
+  padding-right: 20px;
+  margin-bottom: -30px;
 }
+
 @media only screen and (max-width:67em){
   .register {
    display: none;
-  
   }
 }
-
 
 .login a {
   color: #EE4673;
