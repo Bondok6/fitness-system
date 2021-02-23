@@ -1,0 +1,11 @@
+
+
+
+input.Invalid{
+    border: 1px solid red;
+}
+
+input.Invalid:focus{
+    border: 3px solid red;
+    border-left: 15px solid #d9a404;
+}

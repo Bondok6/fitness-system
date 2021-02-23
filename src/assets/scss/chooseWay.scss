@@ -1,0 +1,57 @@
+.Auth {
+    color: #fff;
+    text-align: left;
+    width: 60%;
+    font-weight: 400;
+    font-size: 2rem;
+}
+hr{
+    color: #fff;
+    width: 63%;
+}
+.Auth2 {
+    color: #fff;
+    text-align: left;
+    width: 60%;
+    font-weight: 200;
+    font-size: 1.5rem;
+
+}
+.Authes{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-top: 1rem;
+    // justify-content: flex-start;
+}
+.AuthType {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    
+    // justify-content: center;
+    input {
+        width: auto;
+        margin-right: .6rem;
+    }
+    img {
+        margin-right: .6rem;
+    }
+    svg{
+        margin-right: .6rem;
+        fill: #EE4673;
+    }
+    div {
+        h4 {
+            color: #fff;
+            font-size: .7rem;
+
+        }
+        h5 {
+            color: #fff;
+            font-size: .7rem;
+
+        }
+    }
+}

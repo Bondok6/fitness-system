@@ -4,7 +4,10 @@ import Login from "../../Components/authentication/login";
 import ResetPassword from "../../Components/authentication/resetPassword";
 import Signup from "../../Components/authentication/signup";
 import Verify from "../../Components/authentication/verify";
+import Choose from "../../Components/authentication/chooseWay";
+import VerifyEmail from "../../Components/authentication/verifyEmail";
 import "./PoPup.css";
+import X from "../../images/svg/X.svg";
 
 function PoPup(props) {
   const ele = useRef();
@@ -23,13 +26,19 @@ function PoPup(props) {
         <Login openHandler2={props.clickHandler2} />
       ) : props.url === "/verify" ? (
         <Verify openHandler2={props.clickHandler2} />
+      ) : props.url === "/verifyEmail"  ? (
+        <VerifyEmail openHandler2={props.clickHandler2} />
       ) : props.url === "/reset" ? (
         <ResetPassword openHandler2={props.clickHandler2} />
       ) : props.url === "/forget" ? (
         <ForgetPassword openHandler2={props.clickHandler2} />
+      ) : props.url === "/chooseWay" ? (
+        <Choose openHandler2={props.clickHandler2} />
       ) : (
-        <Signup openHandler2={props.clickHandler2} />
+        <Signup openHandler2={props.clickHandler2} method={props.method} />
       )}
+
+      <img src={X} alt="X" className="X" onClick={() => props.closeHandler()} />
     </div>
   );
 }

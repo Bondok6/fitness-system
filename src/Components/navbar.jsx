@@ -38,7 +38,19 @@ export const Nav = (props) => {
               </li>
             </ul>
           </div>
-          <div className={style.register}>
+          {
+            localStorage.getItem("token")?  <div className={style.register}>
+            <span className={style.signup}>
+              <Link
+                onClick={() => {
+                  localStorage.removeItem("token")
+                return  window.location.href="/"
+                }}
+              >
+                Logout
+              </Link>
+            </span>
+          </div> : <div className={style.register}>
             <span className={style.login}>
               <Link
                 onClick={() => {
@@ -52,13 +64,15 @@ export const Nav = (props) => {
             <span className={style.signup}>
               <Link
                 onClick={() => {
-                  props.openHandler2("/signup");
+                  props.openHandler2("/chooseWay");
                 }}
               >
                 sign up
               </Link>
             </span>
           </div>
+          }
+         
         </nav>
       </header>
     </React.Fragment>

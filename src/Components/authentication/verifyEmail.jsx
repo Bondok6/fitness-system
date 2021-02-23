@@ -25,18 +25,18 @@ export class Verify extends Component {
         touched: false,
       },
 
-      phone: {
+      email: {
         value: "",
         valid: false,
         validation: {
           required: true,
-          isPhone: true,
+          isEmail: true,
         },
         elementType: "input",
         elementConfig: {
           type: "text",
-          placeholder: "Phone",
-          id: "phone",
+          placeholder: "Email",
+          id: "email",
         },
         touched: false,
       },
@@ -61,18 +61,15 @@ export class Verify extends Component {
   submitHandler = (e) => {
     if (this.state.controls.code.valid && this.state.controls.email.valid) {
       this.setState({ loading: true, error: null });
-
-      let p = "+2";
-      let phone = p.concat(this.state.controls.phone.value);
-
+      console.log("here")
       e.preventDefault();
       const data = {
-        phone: phone,
+        email: this.state.controls.email.value,
         code: this.state.controls.code.value,
       };
 
       axios({
-        url: "verify",
+        url: "verfy-email",
         method: "POST",
         data: data,
       })
@@ -80,6 +77,7 @@ export class Verify extends Component {
           this.setState({ loading: false, error: null });
           // window.location.href='/'
           localStorage.setItem("token", res.data.token);
+
           this.props.openHandler2("/login");
         })
         .catch((err) => {
@@ -106,13 +104,13 @@ export class Verify extends Component {
               {/* <input type="text" placeholder="Phone" className={style.inp}
             onChange={(e)=> this.phone = e.target.value}/> */}
               <Input
-                inValid={!this.state.controls.phone.valid}
-                changed={(e) => this.on(e, "phone")}
-                value={this.state.controls.phone.value}
-                elementType={this.state.controls.phone.elementType}
+                inValid={!this.state.controls.email.valid}
+                changed={(e) => this.on(e, "email")}
+                value={this.state.controls.email.value}
+                elementType={this.state.controls.email.elementType}
                 hasValidity
-                touched={this.state.controls.phone.touched}
-                elementConfig={this.state.controls.phone.elementConfig}
+                touched={this.state.controls.email.touched}
+                elementConfig={this.state.controls.email.elementConfig}
                 class={style.inp}
               />
             </div>
@@ -150,7 +148,6 @@ export class Verify extends Component {
       </React.Fragment>
     );
     if (this.state.loading) body = <Spinner />;
-
     return body;
   }
 }

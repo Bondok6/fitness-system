@@ -6,7 +6,7 @@
     bottom: 0;
     position: fixed;
     border-radius: 35% 35% 0 0;
-    height: 80vh;
+    height: 85vh;
     transition: all .3s;
     transform: translateY(100%);
     -webkit-transform: translateY(100%);
@@ -18,4 +18,13 @@
     -ms-transition: all .3s;
     -o-transition: all .3s;
     padding: 8rem;
+
+    .X{
+        position: absolute;
+        top: 21%;
+        right: 14%;
+        display: block;
+        width: 17px;
+        cursor: pointer;
+    }
 }
