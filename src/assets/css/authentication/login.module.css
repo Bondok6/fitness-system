@@ -25,14 +25,15 @@ form{
   margin-bottom: 10px;
 }
 
-input{
+form input{
   background-color: #000;
   width: 300px;
   padding: 5px 20px;
   color: #fff;
 }
-input:focus{
+form input:focus{
   border-left: 15px solid #EE4673;
+  letter-spacing: 2px;
 }
 
 .btn{
