@@ -5,21 +5,21 @@ import profile from "../../images/profile.jpg";
 import line from "../../images/svg/line.svg";
 function Profile(props) {
   return (
-    <section class={s.profile}>
-      <div class="container">
-        <div class="profile-info">
-          <img class={s.line} src={line} alt="line" />
-          <div class={s.circle}>
+    <section className={s.profile}>
+      <div className="container">
+        <div>
+          <img className={s.line} src={line} alt="line" />
+          <div className={s.circle}>
             <img 
-              class={s.profile_img}
+              className={s.profile_img}
               src="https://picsum.photos/220/220"
               alt="profile"
             />
-            <img class={s.add_img} src={add} alt="add" />
+            <img className={s.add_img} src={add} alt="add" />
           </div>
-          <div class={s.info}>
+          <div className={s.info}>
             <h4>kyrillos hany</h4>
-            <div class={s.details}>
+            <div className={s.details}>
               <div>
                 <span>Weight: </span>60kg
               </div>
@@ -58,7 +58,7 @@ function Profile(props) {
                 <button> Month 9 </button>
                 <button> Month 10 </button>
                 </div>
-            <button className={s.Images__update}>UPDATE </button>
+            <button className={s.Images__update}> update </button>
             </div>
           </div>
         </div>
@@ -67,22 +67,22 @@ function Profile(props) {
 
         <hr />
 
-        <div class={s.charts}>
+        <div className={s.charts}>
           <h3>Motivation Charts</h3>
-          <div id="calendar_basic" class={s.chart_content}></div>
+          <div id="calendar_basic" className={s.chart_content}></div>
         </div>
 
         <hr />
 
-        <div class={s.cards}>
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+        <div className={s.cards}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -94,21 +94,21 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
             </div>
           </div>
 
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -120,21 +120,21 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
             </div>
           </div>
 
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -146,20 +146,20 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
             </div>
           </div>
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -171,20 +171,20 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
             </div>
           </div>
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -196,20 +196,20 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
             </div>
           </div>
-          <div class={s.card_container}>
-            <div class={s.upper_container}>
-              <div class={s.image_container}>
+          <div className={s.card_container}>
+            <div className={s.upper_container}>
+              <div className={s.image_container}>
                 <img src={profile} />
               </div>
             </div>
 
-            <div class={s.lower_container}>
+            <div className={s.lower_container}>
               <div>
                 <h3>Alaina Wick</h3>
                 <h4>Front-end Developer</h4>
@@ -221,7 +221,7 @@ function Profile(props) {
                 </p>
               </div>
               <div>
-                <a href="#" class="btn">
+                <a href="#" className={s.btn}>
                   View profile
                 </a>
               </div>
