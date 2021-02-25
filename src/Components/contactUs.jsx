@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import style from '../assets/css/contact.module.css';
 
 export class Contact extends Component {
-  Y
-  
   render() {
     return (
       <React.Fragment>

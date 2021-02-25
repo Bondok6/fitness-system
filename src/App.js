@@ -8,8 +8,9 @@ import Contact from './Components/contactUs';
 import Sidebar from './UI/Sidebar/Sidebar';
 import Backdrop from './UI/Backdrop/Backdrop'
 import PoPup from './UI/PoPup/PoPup';
+import Profile from './Pages/Profile/Profile';
 function App() {
-
+  
   
   const [open, setOpen] = useState(false);
   const [u, setU] = useState(false);
@@ -57,7 +58,9 @@ function App() {
             <Switch>
               {/* <Route exact path='/signup' component={Signup} />
               <Route exact path='/login' component= {Login} /> */}
-              <Route exact path='/' render={(props) => <Home closeHandler2={closeHandler2} {...props} />} />
+              <Route exact path='/' render={(props)=><Home closeHandler2={closeHandler2} {...props} />} />
+              <Route exact path='/profile' component={Profile} />
+              {/* <Route exact path='/' render={(props) => <Home closeHandler2={closeHandler2} {...props} />} /> */}
               <Route exact path='/contact' component={Contact}/>
               {/* <Route exact path='/forget' component= {ForgetPassword} />
               <Route exact path='/verify' component= {Verify} />

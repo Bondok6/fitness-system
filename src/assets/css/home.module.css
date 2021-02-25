@@ -270,6 +270,7 @@
 .qrsection h4 {
   margin-left: 20px;
   font-size: 1.5rem;
+  line-height: 1.5;
   color: #fff;
   text-transform: capitalize;
 }
