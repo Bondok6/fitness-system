@@ -113,16 +113,16 @@ body {
   font-family: Oswald, 'sans-serif';
 }
 
-.details div {
+.details div:not(:last-child) {
   margin-right: 30px;
   padding-right: 20px;
   font-size: 1.1rem;
   border-right: 2px solid #D9A404;
 }
 
-.details div:last-child {
+/* .details div:last-child {
   border: none;
-}
+} */
 
 .details div span {
   color: #D9A404;
