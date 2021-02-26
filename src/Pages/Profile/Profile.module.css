@@ -1,36 +1,11 @@
-.chart_content {
-  padding-left: 50px;
-}
-
-.charts h3 {
-  display: inline-block;
-  margin: 20px 50px;
-  padding-bottom: 7px;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  border-bottom: 3px solid #00f;
-}
-
 body {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #665e46), to(#FBE39A));
   background: linear-gradient(#665e46 5%, #FBE39A);
 }
 
-.line {
-  color: #fff;
-}
-
-.register a:hover {
-  text-decoration: underline;
-}
-
 /* ********************************** Start Profile **********************************/
 .profile {
-  margin-top: 260px;
-}
-
-.profile_info {
-  margin-top: 239px;
+  padding-top: 260px;
 }
 
 .line {
@@ -131,6 +106,75 @@ hr {
   width: 100%;
 }
 
+.Images__heading {
+  margin-bottom: 20px;
+}
+
+.Images__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Images__photo {
+  margin-right: 50px;
+  /* border: 2px solid #a53352;
+  padding: 5px; */
+}
+
+.Images__photo img {
+  display: block;
+  width: 250px;
+  height: 340px;
+
+  border: 2px solid #a53352;
+  padding: 10px;
+}
+
+.Images__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.Images__btns button {
+  width: 100px;
+  background-color: #181303;
+  color: #d9a404;
+  border: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.Images__btns button:focus {
+  outline: none;
+}
+
+.Images__update {
+  margin-top: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: 65px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 1s;
+}
+
+.Images__update:hover{
+  background-color: #fff;
+  color: #181303 ;
+}
+/*# sourceMappingURL=Profile.module.css.map */
+
 .cards {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -227,71 +271,3 @@ h4 {
 }
 
 /* ********************************** End Profile **********************************/
-.Images__heading {
-  margin-bottom: 20px;
-}
-
-.Images__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.Images__photo {
-  margin-right: 50px;
-  /* border: 2px solid #a53352;
-  padding: 5px; */
-}
-
-.Images__photo img {
-  display: block;
-  width: 250px;
-  height: 340px;
-
-  border: 2px solid #a53352;
-  padding: 10px;
-}
-
-.Images__btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-}
-
-.Images__btns button {
-  width: 100px;
-  background-color: #181303;
-  color: #d9a404;
-  border: none;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.Images__btns button:focus {
-  outline: none;
-}
-
-.Images__update {
-  margin-top: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: 65px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: 1s;
-}
-
-.Images__update:hover{
-  background-color: #fff;
-  color: #181303 ;
-}
-/*# sourceMappingURL=Profile.module.css.map */

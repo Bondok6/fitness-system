@@ -7,6 +7,7 @@ function Profile(props) {
   return (
     <section className={s.profile}>
       <div className="container">
+
         <div>
           <img className={s.line} src={line} alt="line" />
           <div className={s.circle}>
@@ -35,6 +36,7 @@ function Profile(props) {
 
         {/* images section */}
         <hr />
+        
         <div className={s.Images}>
           <h2 className={s.Images__heading}>
             {" "}
