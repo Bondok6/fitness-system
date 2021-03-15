@@ -1,11 +1,14 @@
-body {
+/* body{
   background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #665e46), to(#FBE39A));
   background: linear-gradient(#665e46 5%, #FBE39A);
-}
+} */
 
 /* ********************************** Start Profile **********************************/
 .profile {
   padding-top: 260px;
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #665e46), to(#FBE39A));
+  background: linear-gradient(#665e46 5%, #FBE39A);
 }
 
 .line {
@@ -271,3 +274,80 @@ h4 {
 }
 
 /* ********************************** End Profile **********************************/
+
+
+
+/* start table */
+.table{
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid #E5B831;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  text-align: center;
+  font-size:1rem;
+	border: 1px solid #E5B831;
+}
+
+.table th,
+.table td:first-child{
+	background-color: #000;
+	color: #E5B831;
+	text-transform: capitalize;
+}
+
+
+.table td[data-label]:hover{
+	background-color: #E5B831;
+	cursor: pointer;
+  font-weight: bold;
+  transition: .6s;
+}
+
+/* Responsive  */
+
+@media(max-width: 500px){
+	.table{
+		border: none;
+	}
+
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+
+	.table tr{
+		margin-bottom:15px;
+	}
+
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left: 15px;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	.table td:first-child{
+		padding-left: 0;
+		text-align: center;
+	}
+
+}
+/* end table */
