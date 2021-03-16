@@ -289,6 +289,13 @@
   letter-spacing: 2px;
 }
 
+.qrbtn:hover{
+  /* background-image: url(../../images/svg/btnHover.svg);
+  background-size: cover;
+  background-position: top ; */
+  background: linear-gradient(to top, #BF0426 50%,rgba(0,0,0,1) 75%);
+}
+
 @media(max-width: 800px) {
   .qrsection h4 {
     font-size: 1.1rem;
