@@ -205,7 +205,7 @@ hr {
 
 .upper_container {
   height: 120px;
-  background: #7F00FF;
+  background: linear-gradient(to top, #d9a4042d, #d9a404a2);
 }
 
 .image_container {
@@ -241,7 +241,7 @@ h4 {
 }
 
 .lower_container h4 {
-  color: #7F00FF;
+  color: #a53352;
   opacity: .6;
   font-weight: bold;
   margin-top: 15px;
@@ -256,11 +256,11 @@ h4 {
 
 .lower_container .btn {
   padding: 12px 20px;
-  background: #7F00FF;
+  background-color: #a53352;
   border: none;
   color: white;
   border-radius: 30px;
-  font-size: 12px;
+  font-size: .8rem;
   text-decoration: none;
   font-weight: bold;
   -webkit-transition: all .3s ease-in;
@@ -269,8 +269,8 @@ h4 {
 
 .lower_container .btn:hover {
   background: transparent;
-  color: #7F00FF;
-  border: 2px solid #7F00FF;
+  color: #a53352;
+  border: 2px solid #d9a4047c;
 }
 
 /* ********************************** End Profile **********************************/
