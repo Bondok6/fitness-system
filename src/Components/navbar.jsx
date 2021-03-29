@@ -22,13 +22,10 @@ export const Nav = (props) => {
                 <Link to="/">home</Link>
               </li>
               <li>
-                <Link to="#">programs</Link>
+                <Link to="/online">online</Link>
               </li>
               <li>
-                <Link to="#">healthy living</Link>
-              </li>
-              <li>
-                <Link to="#">community</Link>
+                <a href="https://bondok6.github.io/SoundCloud-player/" target="_blank">Music</a>
               </li>
               <li>
                 <Link to="/contact">contact us</Link>

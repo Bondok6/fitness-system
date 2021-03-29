@@ -3,6 +3,7 @@ import  s from "./Profile.module.css";
 import add from "../../images/add.png";
 import profile from "../../images/profile.jpg";
 import line from "../../images/svg/line.svg";
+
 function Profile(props) {
   return (
     <section className={s.profile}>

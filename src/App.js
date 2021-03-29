@@ -9,6 +9,8 @@ import Sidebar from './UI/Sidebar/Sidebar';
 import Backdrop from './UI/Backdrop/Backdrop'
 import PoPup from './UI/PoPup/PoPup';
 import Profile from './Pages/Profile/Profile';
+import Online from './Components/online';
+
 function App() {
   
   
@@ -62,6 +64,7 @@ function App() {
               <Route exact path='/profile' component={Profile} />
               {/* <Route exact path='/' render={(props) => <Home closeHandler2={closeHandler2} {...props} />} /> */}
               <Route exact path='/contact' component={Contact}/>
+              <Route exact path='/online' component={Online}/>
               {/* <Route exact path='/forget' component= {ForgetPassword} />
               <Route exact path='/verify' component= {Verify} />
               <Route exact path='/reset' component= {ResetPassword} /> */}

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* body {
+  background: linear-gradient(#665e46 5%, #FBE39A);
+} */
+
+/* ********************************** Start Online **********************************/
+.online {
+  padding-top: 120px;
+  background: linear-gradient(#665e46 5%, #FBE39A);
+}
+
+/* Start Search */
+.searchBox {
+  height: 50px;
+  width: 0px;
+  background-color: #000;
+  border-radius: 40px;
+  /* transition: .4s; */
+}
+
+.searchTxt {
+  border: none;
+  background: none;
+  outline: none;
+  
+  width: 240px;
+  padding: 0 6px;
+  margin-top: 4px;
+
+  font-size: 1.2rem;
+  line-height: 40px;
+  color: #fff;
+
+  display: none;
+}
+
+.searchIcon {
+  width: 50px;
+  float: left;
+  cursor: pointer;
+}
+
+.searchBox:hover {
+  width: 300px;
+}
+
+.searchBox:hover .searchTxt {
+  display: inline;
+}
+/* End Search */
+
+/* Sart Slider */
+.carouselControlPrev,
+.carouselControlNext{
+  border: 3px solid #F20544;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: .8;
+  height: 35px;
+  width: 35px;
+  top: 38vh;
+  margin: 0 40px;
+  padding: 5px;
+  cursor: pointer;
+}
+.sliderContainer{
+    overflow: hidden;
+    /* border: 5px solid #000; */
+}
+.slider {
+  margin-top: 30px;
+  width: 220px;
+  display: flex;
+  /* border: 1px solid red; */
+}
+
+.slider a {
+  text-decoration: none;
+}
+
+.slider img {
+  border: 2px solid #000;
+  margin: 0px 5px;
+}
+/* End slider */
+/* Start video */
+.video {
+  margin-top: 30px;
+  text-align: center;
+}
+/* End video */
+/* Start comments */
+.comments {
+  margin-top: 30px;
+}
+
+.title {
+  width: 100%;
+  background: linear-gradient(to right, #242323, #F20544);
+}
+
+.title h3 {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: Montserrat, 'sans-serif';
+}
+
+.comment {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.person {
+  width: 150px;
+  margin-right: 20px;
+}
+.commentContent{
+  margin-top: 10px;
+}
+.commentContent h6{
+  font-family: Montserrat, 'sans-serif';
+  font-size: 1rem;
+}
+.commentContent span{
+  font-family: Oswald, 'sans-serif';
+  font-size: .6rem;
+}
+
+.commentFooter{
+  display: flex;
+  align-items: center;
+}
+.commentFooter span{
+  font-size: 2rem;
+}
+.btnReply{
+  background-color: #EE4673;
+  color: #fff;
+
+  text-transform: uppercase;
+  
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 5px 15px;
+  margin-left: 20px;
+}
+
+.writeComment {
+  margin-top: 100px;
+
+  display: flex;
+  align-items: center;
+}
+
+.commentText {
+  margin-left: 20px;
+  width: 100%;
+}
+
+.commentText textarea {
+  resize: none;
+  border: 2px solid #555;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  width: 50%;
+}
+
+.postBtn {
+  background: linear-gradient(#242323, #F20544);
+  color: #fff;
+
+  text-transform: uppercase;
+
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 5px 15px;
+  margin-left: 20px;
+}
+
+/* End comments */
+
+
+
+/* ********************************** Start Online **********************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start Footer */
+footer {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .8), #000 100%);
+  color: #fff;
+  padding: 60px 0;
+  margin-top: 100px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer ul {
+  display: flex;
+  margin-bottom: 25px;
+  list-style: none;
+}
+
+footer img {
+  width: 100px;
+  cursor: pointer;
+}
+
+li.icon-hover {
+  display: none;
+}
+
+.icon:hover+li {
+  display: block;
+}
+
+.icon:hover {
+  display: none;
+}
+
+.icon-caption img{
+  width: 200px;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+footer p {
+  color: rgba(255, 255, 255, .7);
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+@media screen and (max-width:800px) {
+  footer {
+    padding: 80px 15px;
+  }
+}
+/* End Footer */
