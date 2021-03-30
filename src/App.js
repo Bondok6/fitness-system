@@ -5,6 +5,7 @@ import Home from './Components/home';
 import Nav from './Components/navbar';
 
 import Contact from './Components/contactUs';
+import About from './Components/about';
 import Sidebar from './UI/Sidebar/Sidebar';
 import Backdrop from './UI/Backdrop/Backdrop'
 import PoPup from './UI/PoPup/PoPup';
@@ -64,6 +65,7 @@ function App() {
               <Route exact path='/profile' component={Profile} />
               {/* <Route exact path='/' render={(props) => <Home closeHandler2={closeHandler2} {...props} />} /> */}
               <Route exact path='/contact' component={Contact}/>
+              <Route exact path='/about' component={About}/>
               <Route exact path='/online' component={Online}/>
               {/* <Route exact path='/forget' component= {ForgetPassword} />
               <Route exact path='/verify' component= {Verify} />
