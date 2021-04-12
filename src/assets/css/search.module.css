@@ -1,0 +1,146 @@
+.rating {
+	padding-top: 150px;
+	background-color: #000;
+	font-family: 'Oswald', sans-serif;
+
+	transform: perspective(900px);
+	transform-style: preserve-3d;
+}
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search input {
+	background-color: #cbcaa5;
+	color: #000;
+	letter-spacing: 2px;
+	width: 70%;
+	border-radius: 20px;
+	outline: none;
+}
+
+.cards {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+}
+.card {
+	position: absolute;
+	text-align: center;
+	width: 250px;
+	height: 350px;
+	margin: 10px 0px;
+	border-radius: 20px;
+	background: linear-gradient(#cbcaa5, #334d50);
+	transition: .6s;
+
+	transform: rotatex(75deg) translatey(-200px) translatez(-100px);
+}
+.card:hover {
+	transform: rotatex(0deg);
+	transform: rotatez(0deg);
+	/* transform: rotatey(0deg); */
+
+	transition: .6s;
+}
+.card__img {
+	transform: translateY(15px);
+
+	width: 200px;
+	border-radius: 50%;
+}
+
+.card__name {
+	padding-top: 10px;
+	font-size: 1.5rem;
+	color: #fff;
+
+	transform: translatey(10px);
+}
+
+.card__rate {
+	display: block;
+	padding: 10px;
+}
+
+.card__btn {
+	display: block;
+	font-family: 'Montserrat', sans-serif;
+	border: none;
+	border-radius: 20px;
+	width: 50%;
+	padding: 5px;
+	margin: 5px 65px;
+	transition: .5s;
+}
+
+.card__btn:hover {
+	background-color: #334d50;
+	color: #fff;
+}
+
+.card:nth-of-type(2) {
+	left: 400px;
+}
+.card:nth-of-type(3) {
+	left: 800px;
+}
+.card:nth-of-type(4) {
+	top: 350px;
+}
+.card:nth-of-type(5) {
+	top: 350px;
+	left: 400px;
+}
+.card:nth-of-type(6) {
+	top: 350px;
+	left: 800px;
+}
+
+@media screen and (max-width: 1000px) {
+	.card:nth-of-type(3) {
+		top: 350px;
+		left: 0;
+	}
+	.card:nth-of-type(4) {
+		top: 350px;
+		left: 400px;
+	}
+	.card:nth-of-type(5) {
+		top: 650px;
+		left: 0;
+	}
+	.card:nth-of-type(6) {
+		top: 650px;
+		left: 400px;
+	}
+}
+
+@media screen and (max-width: 786px) {
+	.card {
+		left: 50px;
+	}
+	.card:nth-child(2) {
+		top: 350px;
+		left: 50px;
+	}
+	.card:nth-of-type(3) {
+		top: 650px;
+		left: 50px;
+	}
+	.card:nth-of-type(4) {
+		top: 950px;
+		left: 50px;
+	}
+	.card:nth-of-type(5) {
+		top: 1250px;
+		left: 50px;
+	}
+	.card:nth-of-type(6) {
+		top: 1550px;
+		left: 50px;
+	}
+}
