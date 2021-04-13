@@ -189,6 +189,7 @@ hr {
 	justify-content: space-around;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	padding-bottom: 30px;
 }
 
 .card_container {
@@ -201,12 +202,14 @@ hr {
 	overflow: hidden;
 	display: inline-block;
 	margin-top: 20px;
+	background: linear-gradient(to top, #fff, #d9a404a2 100%);
 }
-
+/*
 .upper_container {
 	height: 120px;
-	background: linear-gradient(to top, #d9a4042d, #d9a404a2);
+	background: linear-gradient(to top, #d9a4042d, #d9a404a2); 
 }
+*/
 
 .image_container {
 	background: white;
@@ -225,38 +228,54 @@ hr {
 
 .lower_container {
 	height: 280px;
-	background: #fff;
 	padding: 20px;
 	padding-top: 50px;
 	text-align: center;
 	font-size: 1.2rem;
+	font-family: 'Oswald', sans-serif;
 }
 
-.lower_container h3,
-h4 {
+.lower_container h3 {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	line-height: .6;
 	font-weight: lighter;
-}
-
-.lower_container h4 {
-	color: #a53352;
-	opacity: .6;
-	font-weight: bold;
-	margin-top: 15px;
-}
-
-.lower_container p {
-	font-size: 16px;
-	color: gray;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 5px;
 	margin-bottom: 30px;
-	margin-top: 20px;
+}
+/* .weight {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+} */
+.lower_container h4 {
+	color: #a53351b4;
+	font-weight: bold;
+	font-size: 1.2rem;
+	margin: 10px 10px;
+	letter-spacing: 1.5px;
+}
+.lower_container h4 span {
+	color: #8d6a01;
+}
+
+.points {
+	font-size: 1.2rem;
+	color: #fff;
+	background-color: #333;
+	border-radius: 20px;
+	padding: 5px;
+	width: 170px;
+	text-align: center;
+	margin: 20px auto;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1.5px;
 }
 
 .lower_container .btn {
 	padding: 12px 20px;
-	background-color: #a53352;
+	background-color: #a53351b4;
 	border: none;
 	color: white;
 	border-radius: 30px;
@@ -265,11 +284,13 @@ h4 {
 	font-weight: bold;
 	-webkit-transition: all .3s ease-in;
 	transition: all .3s ease-in;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 2px;
 }
 
 .lower_container .btn:hover {
 	background: transparent;
-	color: #a53352;
+	color: #a53351b4;
 	border: 2px solid #d9a4047c;
 }
 

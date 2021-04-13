@@ -10,6 +10,8 @@ import Spinner from '../../UI/Spinner/Spinner';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import LineChart from '../../Components/chartjs';
+import Star from '../../images/svg/star.svg';
+import User from '../../images/profile.jpg';
 
 function generateRanges(startDate, endDate) {
 	let current = moment(startDate, 'DD/MM/YYYY');
@@ -49,6 +51,8 @@ function Profile(props) {
 
 	const [ currentWeekWeight, setCurrentWeekWeight ] = useState([]);
 	const [ currentWeekPerfectPath, setCurrentWeekPerfectPath ] = useState([]);
+
+	const [ trainers, setTrainers ] = useState([]);
 
 	useEffect(
 		() => {
@@ -106,10 +110,14 @@ function Profile(props) {
 					console.error(err);
 				});
 		},
-		[ loading, loading2, loading3 ]
+		[ loading, loading2, loading3, props.open2 ]
 	);
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		axios.get('/fetch-gyms?limit=3').then((res) => {
+			setTrainers(res.data.docs);
+		});
+	}, []);
 
 	const leftToggle = () => {
 		var indexOfStevie = dates.findIndex((i) => i.date === current);
@@ -125,6 +133,7 @@ function Profile(props) {
 				});
 		}
 	};
+
 	const rightToggle = () => {
 		var indexOfStevie = dates.findIndex((i) => i.date === current);
 		if (indexOfStevie !== dates.length - 1) {
@@ -1079,144 +1088,61 @@ function Profile(props) {
 				</div>
 				<hr />
 				<div className={s.cards}>
+					{trainers.length > 0 ? (
+						trainers.map((t) => {
+							return (
+								<div className={s.card_container}>
+									<div className={s.upper_container}>
+										<div className={s.image_container}>
+											<img src={profile} />
+										</div>
+									</div>
+
+									<div className={s.lower_container}>
+										<div>
+											<h3>Alaina Wick</h3>
+											<h4>Front-end Developer</h4>
+										</div>
+										<div>
+											<p>
+												sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec,
+												ornare arcu.
+											</p>
+										</div>
+										<div>
+											<a href="#" className={s.btn}>
+												View profile
+											</a>
+										</div>
+									</div>
+								</div>
+							);
+						})
+					) : (
+						''
+					)}
+
 					<div className={s.card_container}>
 						<div className={s.upper_container}>
 							<div className={s.image_container}>
-								<img src={profile} />
+								<img src={User} />
 							</div>
 						</div>
 
 						<div className={s.lower_container}>
 							<div>
 								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
+								<div className={s.weight}>
+									<h4>
+										Before: <span> 80 </span> kg{' '}
+									</h4>
+									<h4>
+										After: <span> 55 </span> kg{' '}
+									</h4>
+								</div>
 							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
-							</div>
-							<div>
-								<a href="#" className={s.btn}>
-									View profile
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div className={s.card_container}>
-						<div className={s.upper_container}>
-							<div className={s.image_container}>
-								<img src={profile} />
-							</div>
-						</div>
-
-						<div className={s.lower_container}>
-							<div>
-								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
-							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
-							</div>
-							<div>
-								<a href="#" className={s.btn}>
-									View profile
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<div className={s.card_container}>
-						<div className={s.upper_container}>
-							<div className={s.image_container}>
-								<img src={profile} />
-							</div>
-						</div>
-
-						<div className={s.lower_container}>
-							<div>
-								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
-							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
-							</div>
-							<div>
-								<a href="#" className={s.btn}>
-									View profile
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className={s.card_container}>
-						<div className={s.upper_container}>
-							<div className={s.image_container}>
-								<img src={profile} />
-							</div>
-						</div>
-
-						<div className={s.lower_container}>
-							<div>
-								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
-							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
-							</div>
-							<div>
-								<a href="#" className={s.btn}>
-									View profile
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className={s.card_container}>
-						<div className={s.upper_container}>
-							<div className={s.image_container}>
-								<img src={profile} />
-							</div>
-						</div>
-
-						<div className={s.lower_container}>
-							<div>
-								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
-							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
-							</div>
-							<div>
-								<a href="#" className={s.btn}>
-									View profile
-								</a>
-							</div>
-						</div>
-					</div>
-					<div className={s.card_container}>
-						<div className={s.upper_container}>
-							<div className={s.image_container}>
-								<img src={profile} />
-							</div>
-						</div>
-
-						<div className={s.lower_container}>
-							<div>
-								<h3>Alaina Wick</h3>
-								<h4>Front-end Developer</h4>
-							</div>
-							<div>
-								<p>
-									sodales accumsan ligula. Aenean sed diam tristique, fermentum mi nec, ornare arcu.
-								</p>
+							<div className={s.points}>
+								🏆 Points: <span>50</span>
 							</div>
 							<div>
 								<a href="#" className={s.btn}>

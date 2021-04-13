@@ -11,7 +11,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 11111111111111111111111111;
   min-width: 100vw;
   height: 170px;
   background-image: url(../../images/navbar.svg);
@@ -43,7 +43,7 @@ header {
   display: flex;
   margin: 0;
   padding: 0;
-  padding-left: 94px;
+  /* padding-left: 94px; */
 
 }
 
