@@ -197,6 +197,14 @@ export class Home extends Component {
 						</div>
 						<div className={style.joinnow}>
 							<img src={join} alt="join now" />
+							<div className={style.hover}>
+								<h4>just sign up </h4>
+								<p>
+									Online training is the best way to make exercises at home to keep fit and improve
+									personal fitness and health, Since the workout sessions aren’t done in person, you
+									can choose to workout anytime you like.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>

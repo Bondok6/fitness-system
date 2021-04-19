@@ -89,6 +89,8 @@
 	text-transform: capitalize;
 	font-size: 1.2rem;
 	margin-bottom: 20px;
+
+	animation: fade 1.5s ease-in;
 }
 
 .fbtn:hover {
@@ -119,6 +121,8 @@
 	letter-spacing: 6px;
 	font-family: 'Oswald', sans-serif;
 	text-shadow: -4px -4px 10px #ffd9665d;
+
+	animation: fade 1s ease-in;
 }
 
 .scaption p {
@@ -127,7 +131,8 @@
 	margin: 0 120px;
 	font-size: 1.5rem;
 	font-weight: lighter;
-	animation: fade 1s ease-in;
+
+	animation: fade 1.5s ease-in;
 }
 
 .sbtn {
@@ -141,6 +146,8 @@
 	margin-left: 25px;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 3px;
+
+	animation: fade 3s ease-in;
 }
 
 .sbtn:hover {
@@ -181,6 +188,8 @@
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 3px;
 	text-shadow: -4px -4px 10px #777;
+
+	animation: fade 1s ease-in;
 }
 
 .tcaption p {
@@ -189,7 +198,7 @@
 	font-size: 1.6rem;
 	font-weight: lighter;
 	margin-bottom: 35px;
-	animation: fade 1s ease-in;
+	animation: fade 1.5s ease-in;
 }
 
 .tbtn {
@@ -201,6 +210,8 @@
 	text-transform: capitalize;
 	font-size: 1.2rem;
 	margin-bottom: 20px;
+
+	animation: fade 2s ease-in;
 }
 
 .tbtn:hover {
@@ -369,6 +380,8 @@
 	-moz-transition: all .3s;
 	-ms-transition: all .3s;
 	-o-transition: all .3s;
+
+	cursor: pointer;
 }
 
 .cardimg {
@@ -377,11 +390,11 @@
 }
 
 .card:hover {
-	transform: scaleY(1.01);
-	-webkit-transform: scaleY(1.01);
-	-moz-transform: scaleY(1.01);
-	-ms-transform: scaleY(1.01);
-	-o-transform: scaleY(1.01);
+	transform: scaleY(1.11);
+	-webkit-transform: scaleY(1.11);
+	-moz-transform: scaleY(1.11);
+	-ms-transform: scaleY(1.11);
+	-o-transform: scaleY(1.11);
 }
 
 .cardcaption {
@@ -434,15 +447,52 @@
 	font-size: 1.2rem;
 	line-height: 1.5;
 }
-
+.joinnow {
+	position: relative;
+}
 .joinnow img {
 	width: 90%;
 	margin-left: 10px;
 	cursor: pointer;
 }
 
+.hover {
+	position: absolute;
+	left: 10%;
+	top: 50%;
+	width: 70%;
+
+	z-index: 5;
+
+	color: #fff;
+	opacity: 0;
+	cursor: pointer;
+
+	padding-left: 10px;
+	transition: all 1s ease-in;
+}
+.hover h4 {
+	font-size: 2rem;
+	padding-bottom: 10px;
+	width: 45%;
+	border-bottom: 2px solid #ff2c64;
+}
+.hover p {
+	font-size: 1rem;
+	line-height: 2;
+	font-weight: 600;
+}
+
 .joinnow img:hover {
 	mix-blend-mode: multiply;
+}
+.joinnow img:hover + .hover {
+	opacity: 1;
+	background-color: rgba(0, 0, 0, .2);
+}
+.hover:hover {
+	opacity: 1;
+	background-color: rgba(0, 0, 0, .2);
 }
 
 @media (max-width: 1200px) {
@@ -453,6 +503,15 @@
 	.joinnow img {
 		width: 100%;
 		margin: 0;
+	}
+}
+@media (max-width: 768px) {
+	.hover {
+		top: 20%;
+		width: 80%;
+	}
+	.hover h4 {
+		font-size: 1.5rem;
 	}
 }
 /* End online section */
