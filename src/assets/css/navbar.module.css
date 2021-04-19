@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 @media only screen and (min-width: 120em) {
 	header {
@@ -95,7 +95,7 @@ header {
 }
 
 .register {
-	font-family: 'Oswald', sans-serif;
+	font-family: "Oswald", sans-serif;
 	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -143,13 +143,34 @@ header {
 	display: inline-block;
 	border-right: 2px solid;
 	font-size: 1rem;
+	position: relative;
+}
+
+.count {
+	position: absolute;
+	top: 3px;
+	right: 3px;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	background-color: #ee4673;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 10px;
+	padding: 8px;
 }
 
 .menu {
 	position: absolute;
-	background-color: rgba(0, 0, 0, .8);
-	right: 100px;
-	top: 100px;
+	background-color: rgba(0, 0, 0, 0.8);
+	right: 76px;
+	top: 76px;
 	border-radius: 20px;
 	width: 300px;
 	color: #fff;
@@ -158,11 +179,13 @@ header {
 	display: flex;
 	justify-content: center;
 	padding: 20px;
+	cursor: pointer;
 }
 .user__image {
 	width: 50px;
 	border-radius: 50%;
 	margin: 0 15px;
+	cursor: pointer;
 }
 
 .accept,
@@ -177,10 +200,26 @@ header {
 }
 
 .accept {
-	background-color: #d9a404;
+	background-color: #f0c649;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
 }
 .decline {
 	background-color: #ff7096;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+}
+.decline:hover {
+	background: #fa8eab;
+}
+.accept:hover {
+	background-color: #f5d576;
 }
 
 .hidden {

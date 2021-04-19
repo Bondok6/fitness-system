@@ -76,7 +76,7 @@ function Videos(props) {
                       id={r.id}
                       src={r.image}
                       alt=""
-                      style={{ width: "200px", height: "200px",cursor:'pointer' }}
+                      style={{ width: "200px", height: "180px",cursor:'pointer',marginRight:'10px' }}
                       onClick={()=>{
                         window.location.href=`/online/${r.id}`
                       }}

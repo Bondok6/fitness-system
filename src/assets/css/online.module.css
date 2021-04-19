@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 body {
-  background: linear-gradient(#665e46 5%, #fbe39a);
+  background: linear-gradient(#665e46 30%, #fbe39a);
 }
 
 /* ********************************** Start Online **********************************/
@@ -133,7 +133,8 @@ body {
 }
 
 .title {
-  width: 100%;
+  width: 80%;
+  margin: auto;
   background: linear-gradient(to right, #242323, #f20544);
   position: relative;
 }
@@ -373,6 +374,7 @@ body {
   -ms-transition: all .3s;
   -o-transition: all .3s;
   margin: 5px;
+  box-shadow: 0px 0px 8px black;
 }
 .videos__video{
   width: 100%;
@@ -484,7 +486,7 @@ body {
 .videos__rating div{
   margin-bottom: 0;
   font-size: 13px;
-  color: #E5B831;
+  color: #cca42b;
 
 }
 .videos__rating img{

@@ -11,7 +11,7 @@ function FoodPopup(props) {
   let allCalories = 0;
   // console.log(props.param)
   // console.log(props.outer)
-  
+
   useEffect(() => {
     setCalPg(0);
     setMyIngredients([]);
@@ -20,11 +20,15 @@ function FoodPopup(props) {
   }, [props.food]);
 
   useEffect(() => {
-    props.food.f.map((f) => {
-      allCalories +=
-        (parseFloat(f.food.cal) / parseFloat(f.food.gram)) *
-        parseFloat(f.grams);
-    });
+    if (props.food) {
+      if (props.food.f) {
+        props.food.f.map((f) => {
+          allCalories +=
+            (parseFloat(f.food.cal) / parseFloat(f.food.gram)) *
+            parseFloat(f.grams);
+        });
+      }
+    }
     setAlCalories(allCalories);
   }, [props.food]);
 
@@ -92,32 +96,14 @@ function FoodPopup(props) {
           grams: i.userGrams,
         });
       });
-      axios
-        .put(`updateAdd`, {
-          outerSystem: props.outer,
-          innerSystem: props.inner,
-          foodId: props.food._id,
-          food: arr,
-        })
-        .then((res) => {
-          //   setResponse(res.data.docs);
-          setCalPg(0);
-          setMyIngredients([]);
-          setAlCalories(0);
-          setLoading(false);
-          setSearch("");
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading(false);
-          setSearch();
-          setCalPg(0);
-          setMyIngredients([]);
-          setAlCalories(0);
-        });
+        // console.log(myIngredients) 
+        console.log(myIngredients)
+        setLoading(false)
+        // console.log(props.method)s
+      props.foodTable(myIngredients,props.method)
     }
   };
-
+  // console.log(props.food,props.method)
   let table = (
     <div style={{ color: "#fff" }}>
       <input
@@ -159,9 +145,13 @@ function FoodPopup(props) {
       </div>
       <div className={s.myFood}>
         <div>
-          {props.food.f.map((f) => {
-            return <button>{f.food.food}</button>;
-          })}
+          {props.food
+            ? props.food.f
+              ? props.food.f.map((f) => {
+                  return <button>{f.food.food}</button>;
+                })
+              : ""
+            : ""}
         </div>
         <div className={s.cal_num}>{alCalories}</div>
         {/* <div>{calPg}</div> */}

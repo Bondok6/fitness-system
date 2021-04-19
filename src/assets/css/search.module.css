@@ -1,10 +1,11 @@
 .rating {
 	padding-top: 150px;
-	background-color: #000;
+	/* background-color: #000; */
 	font-family: 'Oswald', sans-serif;
 
 	transform: perspective(900px);
 	transform-style: preserve-3d;
+	min-height:100vh;
 }
 .search {
 	display: flex;
@@ -25,7 +26,7 @@
 	position: relative;
 
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 .card {
 	position: absolute;
@@ -143,4 +144,12 @@
 		top: 1550px;
 		left: 50px;
 	}
+}
+.MuiPaginationItem-textPrimary.Mui-selected {
+	color: #fff;
+	background: linear-gradient(#665e46 100%, #fbe39a);
+}
+.MuiPaginationItem-textPrimary.Mui-selected:hover {
+	color: #fff;
+	background: linear-gradient(#665e46 120%, #fbe39a);
 }

@@ -145,8 +145,8 @@ export function Online(props) {
 
         <div class={style.video}>
           <iframe
-            width="600"
-            height="315"
+            width="900"
+            height="415"
             src={video.video?video.video:""}
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -164,7 +164,7 @@ export function Online(props) {
             ? video.comments.length > 0
               ? video.comments.map((c) => {
                   return (
-                    <div class={style.comment}>
+                    <div class={style.comment} style={{marginLeft:'120px'}}>
                       <div>
                         <img
                           class={style.person}
@@ -172,8 +172,8 @@ export function Online(props) {
                           alt="person"
                           style={{
                             borderRadius: "50%",
-                            width: "150px",
-                            height: "150px",
+                            width: "80px",
+                            height: "80px",
                           }}
                         />
                       </div>
