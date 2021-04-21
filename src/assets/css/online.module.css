@@ -51,6 +51,7 @@ input:focus {
 
 .searchBox:hover {
 	width: 300px;
+	transition: .3s;
 }
 
 .searchBox:hover .searchTxt {
