@@ -39,7 +39,7 @@ body {
 
 	display: none;
 }
-input:focus {
+.searchBox input:focus {
 	border-left: none;
 }
 .searchIcon {
