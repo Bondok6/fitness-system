@@ -146,9 +146,11 @@
 
 	transition: .4s;
 }
+
 .closeBtn:hover {
 	color: #fff;
 }
+
 .nextBtn,
 .backBtn {
 	position: absolute;
@@ -165,6 +167,7 @@
 
 	transition: 0.4s;
 }
+
 .backBtn {
 	position: absolute;
 	left: 1.5rem;
