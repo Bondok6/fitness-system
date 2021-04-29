@@ -180,16 +180,10 @@
 	display: none;
 }
 
-@media (max-width: 800px) {
-	.modal {
-		width: 100vw;
-		height: 100vh;
-	}
-}
-
 .question {
 	margin-top: 50px;
 }
+
 .answer {
 	margin: 30px;
 	width: 70%;
@@ -197,6 +191,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 }
+
 .answer button {
 	margin: 10px 0px;
 	border: none;
@@ -209,6 +204,7 @@
 	text-transform: capitalize;
 	font-size: 1.2rem;
 }
+
 .answer button:hover {
 	background-color: #d9a404;
 	color: #000;
