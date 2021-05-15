@@ -14,7 +14,8 @@ import TrainerCard from "../../Components/TrainerCard";
 import style2 from "../../assets/css/navbar.module.css";
 import AlertContext from "../../context/alerts-context";
 import _ from "lodash";
-import { Line } from 'react-chartjs-2';
+import ProfileModal from "../../UI/ProfileModal/ProfileModal";
+// import { Line } from 'react-chartjs-2';
 
 function generateRanges(startDate, endDate) {
   let current = moment(startDate, "DD/MM/YYYY");
@@ -35,19 +36,13 @@ function Profile(props) {
 
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
-  const [loading3, setLoading3] = useState(false);
+  // const [loading3, setLoading3] = useState(false);
 
   const [update, setUpdate] = useState();
   const [system, setSystem] = useState();
   const [dates, setDates] = useState([]);
 
   const [current, setCurrent] = useState("");
-
-  const [h, setH] = useState();
-  const [w, setW] = useState();
-
-  const height = useRef();
-  const weight = useRef();
 
   const [weeks, setWeeks] = useState([]);
   const [weekIndex, setWeekIndex] = useState(0);
@@ -57,6 +52,15 @@ function Profile(props) {
 
   const [trainees, setTraineees] = useState([]);
   const [trainers, setTrainers] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+  const closeModal = () => {
+    setOpen(false);
+  };
 
   const alers = useContext(AlertContext);
 
@@ -70,10 +74,7 @@ function Profile(props) {
     })
   );
 
-  // console.log(al)
-
   useEffect(() => {
-    // console.log(props.match.params.id);
     axios
       .get(
         props.match.params.id
@@ -81,7 +82,7 @@ function Profile(props) {
           : `fetch-profile`
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setProfile(res.data.user);
         setSystem(res.data.system);
         let newWeeks = generateRanges(
@@ -141,10 +142,7 @@ function Profile(props) {
   }, [
     loading,
     loading2,
-    loading3,
     props.open2,
-    // props.match.params.id,
-    // weekIndex,
   ]);
 
   useEffect(() => {
@@ -155,6 +153,25 @@ function Profile(props) {
       setTrainers(res.data.docs);
     });
   }, []);
+
+  const updateHandler = async (info) => {
+    //     badHabbit: "I have a sweet tooth  "
+    // energyLevel: "I need a nap after meals"
+    // goalWeight: "80"
+    // height: "30"
+    // lastIdealWeight: "1-2 years ago"
+    // sleepEveryNight: "6-7 hours"
+    // walkDaily: "1-2 hours "
+    // waterDaily: "More than 6 glasses"
+    // weight: "40"
+    // workout: "1-2 workouts a week "
+
+    ////axios update profile
+    const res = await axios.post("/updateInfo", info);
+    console.log(res);
+    setLoading2(true);
+    setLoading2(false);
+  };
 
   const leftToggle = () => {
     if (system) {
@@ -259,41 +276,6 @@ function Profile(props) {
       }
   };
 
-  const addWeight = () => {
-    if (w) {
-      setLoading2(true);
-      axios
-        .post(`weight`, { weight: w })
-        .then((res) => {
-          weight.current.style.display = "none";
-          alert.current.style.visibility = "visible";
-          alert.current.style.opacity = "1";
-          setLoading2(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading2(false);
-        });
-    }
-  };
-  const addHeight = () => {
-    if (h) {
-      setLoading3(true);
-      axios
-        .post(`height`, { height: h })
-        .then((res) => {
-          height.current.style.display = "none";
-          alert.current.style.visibility = "visible";
-          alert.current.style.opacity = "1";
-          setLoading3(false);
-        })
-        .catch((err) => {
-          console.error(err);
-          setLoading3(false);
-        });
-    }
-  };
-
   let updateButton = props.match.params.id ? (
     ""
   ) : (
@@ -302,7 +284,7 @@ function Profile(props) {
         background: "black",
         color: "#d9a404",
         width: "100px",
-        marginRight: "10px",
+        marginRight: "200px",
         marginBottom: "10px",
         textAlign: "center",
         cursor: "pointer",
@@ -314,22 +296,8 @@ function Profile(props) {
     </label>
   );
 
-  if (loading === true) {
-    updateButton = <Spinner />;
-  }
-
   let weightComponent = (
     <div>
-      {props.match.params.id ? (
-        ""
-      ) : (
-        <img
-          src={add}
-          alt="add"
-          style={{ cursor: "pointer" }}
-          onClick={() => (weight.current.style.display = "block")}
-        />
-      )}
       <span>Weight: </span>
       {profile
         ? profile.weights
@@ -339,42 +307,11 @@ function Profile(props) {
           : ""
         : ""}
       kg
-      <div style={{ display: "none" }} ref={weight}>
-        <input
-          type="number"
-          onChange={(e) => setW(e.target.value)}
-          style={{ height: "30px", padding: "auto", width: "auto" }}
-        />
-        <button
-          style={{
-            width: "100px",
-            backgroundColor: "#181303",
-            color: "#d9a404",
-            border: "none",
-            marginLeft: "1px",
-          }}
-          onClick={() => addWeight()}
-        >
-          Add Weight
-        </button>
-      </div>
     </div>
   );
 
-  if (loading3) weightComponent = <Spinner />;
-
   let heightComponent = (
     <div>
-      {props.match.params.id ? (
-        ""
-      ) : (
-        <img
-          src={add}
-          alt="add"
-          style={{ cursor: "pointer" }}
-          onClick={() => (height.current.style.display = "block")}
-        />
-      )}
       <span>height: </span>
       {profile
         ? profile.heights
@@ -384,29 +321,8 @@ function Profile(props) {
           : ""
         : ""}
       cm
-      <div style={{ display: "none" }} ref={height}>
-        <input
-          type="number"
-          onChange={(e) => setH(e.target.value)}
-          style={{ height: "30px", padding: "auto", width: "auto" }}
-        />
-        <button
-          style={{
-            width: "100px",
-            backgroundColor: "#181303",
-            color: "#d9a404",
-            border: "none",
-            marginLeft: "1px",
-          }}
-          onClick={() => addHeight()}
-        >
-          Add Height
-        </button>
-      </div>
     </div>
   );
-
-  if (loading2) heightComponent = <Spinner />;
 
   return (
     <section className={s.profile}>
@@ -478,22 +394,20 @@ function Profile(props) {
                 <span>Diet Plan: </span>Intermittent Fasting
               </div>
 
-              <div> <button className={s.updateBtn}> Update </button> </div>
-
-              <div className={`${s.modal} ${s.hidden}`}>
-                <button className={s.closeBtn}>&times;</button>
-                <button className={s.nextBtn}>Next</button>
-                <button className={s.backBtn}>Back</button>
-
-                <h1 className={s.question}>What is your fav color ?</h1>
-                <div className={s.answer}>
-                  <button>Red</button>
-                  <button>Green</button>
-                  <button>Blue</button>
-                  <button>Yellow</button>
-                  
-                </div>
+              <div>
+                {" "}
+                <button className={s.updateBtn} onClick={() => openModal()}>
+                  {" "}
+                  Update{" "}
+                </button>{" "}
               </div>
+
+              {open && (
+                <ProfileModal
+                  updateHandler={updateHandler}
+                  closeModal={closeModal}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -504,7 +418,7 @@ function Profile(props) {
             <button
               className={style2.accept}
               onClick={() => {
-                console.log("here")
+                console.log("here");
                 setLoading(true);
                 axios
                   .put(`approve?request=${al.id}`)

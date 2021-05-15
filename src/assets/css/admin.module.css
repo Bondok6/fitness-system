@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+body {
+	background: linear-gradient(#242323 25%, #ffdf7e 70%) no-repeat;
+	min-height: 100vh;
+}
+
+/*_____________________________________________________________________ */
+
+/* Start left side */
+.left_side {
+	position: fixed;
+	top: 40%;
+	left: -7px;
+}
+.ground__img {
+	height: 200px;
+}
+.add__img {
+	width: 70px;
+	position: fixed;
+	top: 43%;
+	left: 0px;
+	cursor: pointer;
+}
+.graph__img {
+	width: 50px;
+	position: fixed;
+	top: 55%;
+	left: 8px;
+	cursor: pointer;
+}
+.hidden {
+	display: none;
+}
+.graph {
+	/* border: 1px solid #fff; */
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+	.graph img {
+		width: 400px;
+	}
+}
+@media screen and (max-width: 800px) {
+	.graph img {
+		width: 300px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.graph img {
+		width: 250px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.graph img {
+		width: 150px;
+	}
+}
+
+/* End left side */
+
+/* Start dash board */
+.dash_section,
+.add_trainer {
+	padding-top: 130px;
+	font-family: "Montserrat", sans-serif;
+}
+.dash_title,
+.add_title {
+	color: #d9a404;
+	font-family: "Oswald", sans-serif;
+	letter-spacing: 2px;
+	font-size: 2rem;
+	margin-left: 100px;
+	text-transform: capitalize;
+}
+.dash,
+.information {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.dash__trainer,
+.dash__user {
+	width: 50vw;
+	height: 40vh;
+	background-color: #8d7d4e;
+	margin-bottom: 20px;
+
+	box-shadow: #242323 10px 10px;
+}
+
+.dash h2 {
+	margin-left: 15px;
+}
+.dash h2 span {
+	margin-left: 10px;
+	color: #d9a404;
+	letter-spacing: 4px;
+}
+.dash p {
+	margin-left: 15px;
+}
+/* End dash board */
+/* Start add trainer */
+.information input {
+	width: 50%;
+	height: 35px;
+
+	margin-bottom: 20px;
+	padding-left: 20px;
+
+	color: #fff;
+	background-color: #000;
+	opacity: 0.7;
+
+	font-size: 1rem;
+
+	border: 1px solid #fff;
+	outline: none;
+}
+.information input:focus {
+	opacity: 1;
+	border: 2px solid #d9a404;
+}
+.dob_info {
+	align-self: flex-start;
+	margin: 0 20%;
+}
+.dob_info label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 1.2rem;
+}
+.dob_info select {
+	display: inline-block;
+	margin: 4px 30px;
+	border: 2px soild #fff;
+	background-color: #000;
+	opacity: 0.7;
+	color: #fff;
+	width: 70px;
+	height: 30px;
+}
+.gender_info {
+	align-self: flex-start;
+	margin: 0 20%;
+}
+.gender_info div {
+	margin: 15px 0px;
+	font-size: 1.2rem;
+}
+.gender_info label {
+	display: inline-block;
+}
+
+.radio {
+	display: none;
+}
+
+.contain {
+	display: block;
+	position: relative;
+	padding-left: 100px;
+	margin-bottom: 25px;
+	cursor: pointer;
+	font-size: 1.2rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 50px;
+	height: 25px;
+	width: 25px;
+	background-color: #000;
+	opacity: 0.7;
+	border: 1px solid #fff;
+}
+
+.contain:hover input ~ .checkmark {
+	opacity: 1;
+}
+
+.contain input:checked ~ .checkmark {
+	background-color: #d9a404;
+}
+
+iframe {
+	align-self: flex-start;
+	margin: 0 20%;
+	margin-bottom: 20px;
+}
+
+.addBtn {
+	border: none;
+	outline: none;
+	border: 1px solid #000;
+	border-radius: 20px;
+
+	background-color: #d9a404;
+
+	width: 120px;
+
+	padding: 4px;
+
+	font-size: 1rem;
+	font-family: "Oswald", sans-serif;
+	letter-spacing: 1.2px;
+	font-weight: 600;
+
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.addBtn:hover {
+	background-color: #000;
+	opacity: 0.7;
+	color: #d9a404;
+}
+.message {
+	color: rgb(172, 50, 50);
+	font-size: 13px;
+	text-align: left;
+	width: 50%;
+	margin-top: -20px;
+}

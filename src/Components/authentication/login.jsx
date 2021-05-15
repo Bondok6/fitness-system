@@ -73,7 +73,7 @@ export class Login extends Component {
 			})
 				.then((res) => {
 					localStorage.setItem('token', res.data.token);
-					this.setState({loading:false})
+					this.setState({ loading: false });
 					window.location.href = '/';
 				})
 				.catch((err) => {

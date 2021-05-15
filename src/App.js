@@ -16,7 +16,10 @@ import SearchTrainer from "./Components/searchTrainer";
 import Axios from "axios";
 import AuthCont from "./context/auth-context";
 import Table from "./Components/Table";
-import Approved from './Components/approvedTrainees'
+import Approved from "./Components/approvedTrainees";
+import AdminHome from "./Components/Admin/Home";
+import AddTrainer from "./Components/Admin/AddTrainer";
+
 function App() {
   const [open, setOpen] = useState(false);
   const [u, setU] = useState(false);
@@ -59,23 +62,25 @@ function App() {
     setOpen2(true);
     setU(url);
     setM(method);
-    if (url === "/food"||url==="/table") {
+    if (url === "/food" || url === "/table") {
       setOuter(o);
       setInnre(i);
       setParam(u);
     }
   }, []);
 
-  const [foo,setFoo]=useState()
+  const [foo, setFoo] = useState();
 
-  const foodTable=(f,method)=>{
-    setFoo(f)
+  const foodTable = (f, method) => {
+    setFoo(f);
     setM(method);
-  }
+  };
 
   const closeHandler2 = useCallback(() => {
     setOpen2(false);
   }, []);
+
+  // console.log(me.role)
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -187,6 +192,11 @@ function App() {
               )}
             />
           </Switch>
+        ) : isAuth && me.role === "admin" ? (
+          <Switch>
+            <Route exact path="/AdminHome" component={AdminHome} />
+            <Route exact path="/AddTrainer" component={AddTrainer} />
+          </Switch>
         ) : (
           <Switch>
             <Route
@@ -196,7 +206,6 @@ function App() {
                 <Home closeHandler2={closeHandler2} {...props} />
               )}
             />
-
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
           </Switch>

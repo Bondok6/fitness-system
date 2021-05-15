@@ -51,7 +51,6 @@ body {
 
 .searchBox:hover {
 	width: 300px;
-	transition: .3s;
 }
 
 .searchBox:hover .searchTxt {
@@ -378,7 +377,7 @@ body {
 
 .videos {
 	/* display: flex;
-  margin: 80px; */
+		margin: 80px; */
 	display: flex;
 	margin-top: 10px;
 	flex-wrap: wrap;
@@ -461,9 +460,9 @@ body {
 }
 .videos__about {
 	/* display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column; */
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: column; */
 	height: 100%;
 	margin-left: 40px;
 }
