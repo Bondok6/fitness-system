@@ -25,7 +25,7 @@ function VideoCategories(props) {
 					<img class={style.searchIcon} src={search} alt="search-icon" />
 					<input
 						class={style.searchTxt}
-						type="search"
+						type="text"
 						placeholder="type to search"
 						onChange={(e) => setSearch(e.target.value)}
 					/>
