@@ -285,6 +285,7 @@ function ProfileModal(props) {
                   Your height{" "}
                   <input
                     type="number"
+                    placeholder="Height in Kg"
                     onChange={(e) => setHeight(e.target.value)}
                   />
                 </div>
@@ -293,6 +294,7 @@ function ProfileModal(props) {
                   Your weight{" "}
                   <input
                     type="number"
+                    placeholder="Weight in Kg"
                     onChange={(e) => setWeight(e.target.value)}
                   />
                 </div>
@@ -301,6 +303,7 @@ function ProfileModal(props) {
                   Goal weight{" "}
                   <input
                     type="number"
+                    placeholder="Goal weight in Kg"
                     onChange={(e) => setGoalWeight(e.target.value)}
                   />
                 </div>
