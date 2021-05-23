@@ -12,6 +12,32 @@ function Table(props) {
 
   const [loadind, setLoading] = useState(false);
 
+
+  const [fields1, setFields1] = useState([{ value: null, value1: null }]);
+
+  function handleChange1(i, event, l) {
+    const values = [...fields1];
+    if (l === 1) {
+      values[i].value1 = event.target.value;
+    } else {
+      values[i].value = event.target.value;
+    }
+    setFields1(values);
+  }
+
+  function handleAdd1() {
+    const values = [...fields1];
+    values.push({ value: null, value1: null });
+    setFields1(values);
+  }
+
+  function handleRemove1(i) {
+    const values = [...fields1];
+    values.splice(i, 1);
+    setFields1(values);
+  }
+
+
   useEffect(() => {
     let l = document.getElementsByTagName("td");
     for (let i = 0; i < l.length; i++) {
@@ -158,14 +184,61 @@ function Table(props) {
     <div className={style.Table}>
       <h2 class={style.section_title}>Creat Diet Plan</h2>
 
-      <div class={style.diet_plan}>
+      <button type="button" onClick={() => handleAdd1()} className="add">
+          +
+        </button>
+        {fields1.length > 1
+          ? fields1.map((field, idx) => {
+              if (idx !== 1) {
+                return (
+                  <div
+                    key={`${field}-${idx}`}
+                    style={{ display: "flex", alignItems: "center" }}
+                  >
+                    <input
+                      type="text"
+                      placeholder="Add Weight"
+                      className="Modal__input"
+                      value={field.value || ""}
+                      onChange={(e) => handleChange1(idx, e)}
+                      style={{ marginRight: "3px" }}
+                    />
+                    {/* <input
+                      type="number"
+                      placeholder="Add Date"
+                      className="Modal__input"
+                      value={field.value1 || ""}
+                      onChange={(e) => handleChange1(idx, e, 1)}
+                      style={{ marginRight: "3px" }}
+                    /> */}
+                     <div class={style.diet_date}>
+        <DatePicker
+          // selected={startDate}
+          value={field.value1 || ""}
+          onChange={(e) => handleChange1(idx, e, 1)}
+        />
+      </div>
+                    <button
+                      type="button"
+                      onClick={() => handleRemove1(idx)}
+                      className="remove"
+                    >
+                      X
+                    </button>
+                  </div>
+                );
+              }
+            })
+          : ""}
+
+      {/* <div class={style.diet_plan}>
         <label for=""> diet plan </label>
         <select>
           <option value="intermittent"> intermittent fasting</option>
           <option value="hamada"> hamada</option>
           <option value="aboahmed"> aboahmed</option>
         </select>
-      </div>
+      </div> */}
 
       <div class={style.diet_date}>
         <DatePicker

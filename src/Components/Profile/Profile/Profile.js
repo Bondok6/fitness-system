@@ -1,20 +1,20 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import s from "./Profile.module.css";
-import add from "../../images/add.png";
-import line from "../../images/svg/line.svg";
+import add from "../../../images/add.png";
+import line from "../../../images/svg/line.svg";
 import axios from "axios";
 import moment from "moment";
 import Alert from "@material-ui/lab/Alert";
-// import Spinner from "../../UI/Spinner/Spinner";
+import Spinner from "../../../UI/Spinner/Spinner";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import LineChart from "../../Components/chartjs";
-import TraineeCard from "../../Components/TraineeCard";
-import TrainerCard from "../../Components/TrainerCard";
-import style2 from "../../assets/css/navbar.module.css";
-import AlertContext from "../../context/alerts-context";
+import LineChart from "../../chartjs";
+import TraineeCard from "../../TraineeCard";
+import TrainerCard from "../../TrainerCard";
+import style2 from "../../../assets/css/navbar.module.css";
+import AlertContext from "../../../context/alerts-context";
 import _ from "lodash";
-import ProfileModal from "../../UI/ProfileModal/ProfileModal";
+import ProfileModal from "../../../UI/ProfileModal/ProfileModal";
 // import { Line } from 'react-chartjs-2';
 
 function generateRanges(startDate, endDate) {
@@ -82,7 +82,6 @@ function Profile(props) {
           : `fetch-profile`
       )
       .then((res) => {
-        // console.log(res);
         setProfile(res.data.user);
         setSystem(res.data.system);
         let newWeeks = generateRanges(
@@ -149,24 +148,36 @@ function Profile(props) {
       setTrainers(res.data.docs);
     });
   }, []);
-  console.log("asdasd");
+
   const updateHandler = async (info) => {
-    await axios.post("/updateInfo", info);
-    // console.log(res);
+    //     badHabbit: "I have a sweet tooth  "
+    // energyLevel: "I need a nap after meals"
+    // goalWeight: "80"
+    // height: "30"
+    // lastIdealWeight: "1-2 years ago"
+    // sleepEveryNight: "6-7 hours"
+    // walkDaily: "1-2 hours "
+    // waterDaily: "More than 6 glasses"
+    // weight: "40"
+    // workout: "1-2 workouts a week "
+
+    ////axios update profile
+    const res = await axios.post("/updateInfo", info);
+    console.log(res);
     setLoading2(true);
     setLoading2(false);
   };
 
   const leftToggle = () => {
-    if (system) {
+    // if (system) {
       var indexOfStevie = dates.findIndex((i) => i.date === current);
       if (indexOfStevie !== 0) {
         setCurrent(dates[indexOfStevie - 1].date);
         axios
           .get(
             props.match.params.id
-              ? `getSystemByDate?date=${current}&&id=${props.match.params.id}`
-              : `getSystemByDate?date=${current}`
+              ? `getSystemByDate?date=${dates[indexOfStevie - 1].date}&&id=${props.match.params.id}`
+              : `getSystemByDate?date=${dates[indexOfStevie - 1].date}`
           )
           .then((res) => {
             setSystem(res.data);
@@ -175,28 +186,32 @@ function Profile(props) {
             console.error(err);
           });
       }
-    }
+    // }
   };
 
   const rightToggle = () => {
-    if (system) {
+    // console.log(system)
+    // if (system) {
+      // console.log(current)
       var indexOfStevie = dates.findIndex((i) => i.date === current);
       if (indexOfStevie !== dates.length - 1) {
         setCurrent(dates[indexOfStevie + 1].date);
+        // console.log(dates[indexOfStevie + 1].date)
         axios
           .get(
             props.match.params.id
-              ? `getSystemByDate?date=${current}&&id=${props.match.params.id}`
-              : `getSystemByDate?date=${current}`
+              ? `getSystemByDate?date=${dates[indexOfStevie + 1].date}&&id=${props.match.params.id}`
+              : `getSystemByDate?date=${dates[indexOfStevie + 1].date}`
           )
           .then((res) => {
+            // console.log(res.data)
             setSystem(res.data);
           })
           .catch((err) => {
             console.error(err);
           });
       }
-    }
+    // }
   };
 
   const leftToggleChart = () => {

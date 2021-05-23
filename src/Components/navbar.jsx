@@ -5,6 +5,7 @@ import style from "../assets/css/navbar.module.css";
 import TocIcon from "@material-ui/icons/Toc";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
+import ChatIcon from '@material-ui/icons/Chat';
 import FaceIcon from "@material-ui/icons/Face";
 import Axios from "axios";
 import AuthContext from "../context/auth-context";
@@ -15,6 +16,7 @@ export const Nav = (props) => {
   const nav = useRef();
 
   const auth = useContext(AuthContext);
+  const alerts=useContext(AlertContext)
 
   const [notifications, setNotifications] = useState(0);
 
@@ -22,7 +24,6 @@ export const Nav = (props) => {
 
   const [loading, setLoading] = useState(false);
 
-  const alerts=useContext(AlertContext)
 
   useEffect(() => {
     if (auth.auth.role === "gym")
@@ -31,7 +32,6 @@ export const Nav = (props) => {
       });
   }, [auth.auth.role, loading,alerts]);
   useEffect(() => {
-    console.log("here")
     if (auth.auth.role === "gym")
       Axios.get("fetch-requests").then((res) => {
         setRequests(res.data.docs);
@@ -172,6 +172,10 @@ export const Nav = (props) => {
                   {alers}
                 </div>
 
+                <Link to="/chat" className={style.icons}>
+                  <ChatIcon />
+                </Link>
+
                 <Link
                   className={style.icons}
                   onClick={() => {
@@ -186,6 +190,10 @@ export const Nav = (props) => {
           ) : localStorage.getItem("token") && auth.auth.role === "trainee" ? (
             <div className={style.register}>
               <span className={style.signup}>
+
+                <Link to="/chat" className={style.icons}>
+                  <ChatIcon />
+                </Link>
                 <Link to="/profile" className={style.icons}>
                   <FaceIcon />
                 </Link>

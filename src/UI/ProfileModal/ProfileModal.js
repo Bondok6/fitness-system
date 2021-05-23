@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import s from "../../Pages/Profile/Profile.module.css";
+import s from "../../Components/Profile/Profile/Profile.module.css";
 
 function ProfileModal(props) {
   const modal = useRef();

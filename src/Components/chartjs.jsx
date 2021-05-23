@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 
 const LineChart = (props) => {
-
   const [data, setData] = useState({});
 
   let current = props.currentWeek;
@@ -12,18 +11,17 @@ const LineChart = (props) => {
     animations: {
       tension: {
         duration: 5000,
-        easing: 'linear',
+        easing: "linear",
         from: 1,
         to: 0,
         loop: true,
-      }
+      },
     },
     scales: {
       yAxes: [
         {
           ticks: {
             beginAtZero: true,
-            
           },
         },
       ],
@@ -58,26 +56,26 @@ const LineChart = (props) => {
         ],
       };
       setData(d);
-
     }
   }, [
     props.currentWeekPerfectPath,
     props.currentWeekWeight,
     props.currentWeek,
-    
   ]);
 
   return (
     <>
       <div className="header">
-        <div
-          className="links"
-          style={{ width: "50%", fontSize: "1.2rem", marginLeft: "30px" }}
-        >
-          A chart that shows you the difference between the rate of change of
-          your weight during a certain period of time and the normal rate that
-          you should follow
-        </div>
+        {!props.param && (
+          <div
+            className="links"
+            style={{ width: "50%", fontSize: "1.2rem", marginLeft: "30px" }}
+          >
+            A chart that shows you the difference between the rate of change of
+            your weight during a certain period of time and the normal rate that
+            you should follow
+          </div>
+        )}
       </div>
       <Line data={data} options={options} type="line" />
     </>
