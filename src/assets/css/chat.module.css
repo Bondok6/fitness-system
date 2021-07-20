@@ -22,10 +22,12 @@ body {
 	padding: 5px;
 	cursor: pointer;
 }
+
 .slider_container {
 	overflow: hidden;
 	/* border: 5px solid #000; */
 }
+
 .slider {
 	margin-top: 50px;
 	width: 120px;
@@ -45,9 +47,11 @@ body {
 
 	cursor: pointer;
 }
+
 .slider span {
 	position: relative;
 }
+
 .slider span::before {
 	content: "";
 	border: 9px solid #ee4673;
@@ -66,8 +70,7 @@ body {
 }
 
 .content {
-	/* border: 2px solid #ffdf7e8f; */
-	margin-top: 35px;
+	margin-block: 55px;
 	border-radius: 7px;
 	padding: 0;
 	box-shadow: -4px -4px 10px #222, 10px 10px 10px #222;
@@ -213,7 +216,7 @@ hr {
 .chat_box {
 	width: 100%;
 	position: relative;
-	bottom: 0;
+	bottom: 0px;
 	background-color: #ffdf7e3a;
 
 	display: flex;

@@ -1,27 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
 import chatCss from "../../assets/css/chat.module.css";
-import photo from "../../images/friend_1.png";
 import Message from "./message";
-import { updateCoversationByMessage, updateCoversation } from "../../store";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+
 import Picker, { SKIN_TONE_MEDIUM_DARK } from "emoji-picker-react";
 import { IconButton } from "@material-ui/core";
 import { InsertEmoticon } from "@material-ui/icons";
+
 function Messaging(props) {
   const [message, setMessage] = useState("");
   const sms = useRef();
   const chosenEmoji = useRef([]);
   const emoj = useRef();
   const emoji = useRef();
-  const pages = useSelector((state) => state.reducer.pages);
-  // const contacts=useSelector(state=>state.reducer.contacts)
+  const [resultedMessages, setResultedMessages] = useState(
+    props.currentConversation
+  );
+  const [resultedConract, setResultedContact] = useState(props.currentContact);
+  useEffect(() => {
+    setResultedMessages(props.currentConversation);
+  }, [props.currentConversation]);
 
-  // useEffect(()=>{
-  //   console.log(props.contactForMessage)
-  // },[props.contactForMessage])
+  useEffect(() => {
+    setResultedContact(props.currentContact);
+  }, [props.currentContact]);
 
-  const dispatcher = useDispatch();
+  // console.log(resultedConract)
 
   const onEmojiClick = (event, emojiObject) => {
     chosenEmoji.current = [...chosenEmoji.current, emojiObject];
@@ -39,32 +42,12 @@ function Messaging(props) {
   useEffect(() => {
     if (props.socket) {
       props.socket.on(`new message`, (body) => {
-        var messageBody = document.querySelector("#messageBody");
-        var btn = document.createElement("div"); // Create a <button> element
-        btn.className = `
-       ${chatCss.chat__bubble} ${
-          body.chat.me != localStorage.getItem("userId")
-            ? chatCss.right_chat
-            : chatCss.left_chat
-        } ${
-          body.chat.me != localStorage.getItem("userId")
-            ? chatCss.chat__bubble__left
-            : chatCss.chat__bubble__right
-        }
-       `;
-
-        btn.innerHTML = body.chat.content; // Insert text
-        messageBody.appendChild(btn);
-        messageBody.scrollTop =
-          messageBody.scrollHeight - messageBody.clientHeight;
-        dispatcher(
-          updateCoversationByMessage(
-            parseInt(body.chat.me) !== parseInt(localStorage.getItem("userId"))
-              ? body.chat.me
-              : body.chat.to,
-            body.chat
-          )
-        );
+        setResultedMessages((prev) => {
+          return {
+            ...prev,
+            docs: [...prev.docs, body.message],
+          };
+        });
       });
     }
   }, [props.socket]);
@@ -72,15 +55,21 @@ function Messaging(props) {
   useEffect(() => {
     var messageBody = document.querySelector("#messageBody");
     messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
-  }, [props.currentConversation]);
+  }, [resultedMessages]);
+
 
   return (
     <div class="col-md-8">
       <div class={chatCss.friend_header}>
         <img
           src={
-            props.contactForMessage
-              ? props.contactForMessage.photo
+            resultedConract
+              ? resultedConract.users
+                ? parseInt(resultedConract.users[0].id) ===
+                  parseInt(localStorage.getItem("userId"))
+                  ? resultedConract.users[1].photo
+                  : resultedConract.users[0].photo
+                : "https://res.cloudinary.com/derossy-backup/image/upload/v1555206304/deross-samples/placeholder-profile-male.jpg"
               : "https://res.cloudinary.com/derossy-backup/image/upload/v1555206304/deross-samples/placeholder-profile-male.jpg"
           }
           alt="friend image"
@@ -88,8 +77,13 @@ function Messaging(props) {
         />
         <div class={chatCss.friend__text}>
           <h6>
-            {props.contactForMessage
-              ? props.contactForMessage.username
+            {resultedConract
+              ? resultedConract.users
+                ? parseInt(resultedConract.users[0].id) ===
+                  parseInt(localStorage.getItem("userId"))
+                  ? resultedConract.users[1].username
+                  : resultedConract.users[0].username
+                : "Please choose contact"
               : "Please choose contact"}
           </h6>
           <blockquote>keep move forward ... </blockquote>
@@ -101,35 +95,24 @@ function Messaging(props) {
         onScroll={(e) => {
           let scrollValue = e.target.scrollTop;
           if (scrollValue === 0 && props.currentContact) {
-            axios
-              .get(
-                `/conversations/${props.currentContact}/messages?limit=${
-                  (pages[props.currentContact] + 1
-                    ? pages[props.currentContact] + 1
-                    : 2) * 10
-                }`
-              )
-              .then((res) => {
-                props.currentHandler(res.data.docs);
-                dispatcher(
-                  updateCoversation(
-                    props.currentContact,
-                    res.data.docs,
-                    pages[props.currentContact] + 1
-                      ? pages[props.currentContact] + 1
-                      : 2
-                  )
-                );
-              });
+            props.pageHandler();
           }
         }}
       >
-        {props.currentConversation
-          ? props.currentConversation.map((sms) => (
-              <Message key={sms.id} me={sms.me} message={sms.content} />
-            ))
+        {resultedMessages
+          ? resultedMessages.docs
+            ? resultedMessages.docs.map((sms) => (
+                <Message
+                  key={sms.id}
+                  me={sms.user ? sms.user.id : sms.sender}
+                  message={sms.content}
+                />
+              ))
+            : ""
           : ""}
       </div>
+{
+  resultedConract?
 
       <div class={chatCss.chat_box}>
         <div ref={emoji}>
@@ -143,7 +126,6 @@ function Messaging(props) {
               skinTone={SKIN_TONE_MEDIUM_DARK}
             />
           </div>
-          {/*  <div ref={sms}></div> */}
           <IconButton onClick={openEmoji}>
             <InsertEmoticon />
           </IconButton>
@@ -174,9 +156,10 @@ function Messaging(props) {
         >
           send
         </i>
-      </div>
+      </div>:""
+}
     </div>
   );
 }
 
-export default Messaging;
+export default React.memo(Messaging);

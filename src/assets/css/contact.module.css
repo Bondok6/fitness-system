@@ -1,125 +1,124 @@
-html{ background-color: #000;}
+.contact {
+	width: 100%;
+	min-height: 900px;
 
-.contact{
-  width: 100%;
-  min-height: 700px;  
+	background-color: #000;
+	font-family: 'Oswald', sans-serif;
 
-  background-color: #000;
-  font-family: 'Oswald', sans-serif;
-
-  padding-top: 120px;
+	padding-top: 120px;
 }
 
-.contact h2{
-  text-align: center;
-  text-transform: uppercase;
+.contact h2 {
+	text-align: center;
+	text-transform: uppercase;
 
-  font-size: 4rem;
-  font-weight: 900;
+	font-size: 4rem;
+	font-weight: 900;
 
-  letter-spacing: 5px;
+	letter-spacing: 5px;
 
-  color: #d9a404;
+	color: #d9a404;
 
-  animation: glow 2.7s ease-in-out infinite alternate;
+	animation: glow 2.7s ease-in-out infinite alternate;
 }
 
-.contact span{
-  color: #EE4673;
+.contact span {
+	color: #ee4673;
 }
 
 @keyframes glow {
-  from{
-   color: #fff;
-  text-shadow: 0 0 10px #EE4673, 0 0 20px #EE4673, 0 0 30px #EE4673, 0 0 40px #EE4673, 0 0 50px #EE4673, 0 0 60px #EE4673, 0 0 70px #EE4673, 0 0 90px #EE4673;
-  }   
+	from {
+		color: #fff;
+		text-shadow: 0 0 10px #ee4673, 0 0 20px #ee4673, 0 0 30px #ee4673, 0 0 40px #ee4673, 0 0 50px #ee4673,
+			0 0 60px #ee4673, 0 0 70px #ee4673, 0 0 90px #ee4673;
+	}
 }
 
-.contactInfo{
-  margin-top: 30px;
+.contactInfo {
+	margin-top: 30px;
 
-  width: 100%;
+	width: 100%;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.cinput{
-  width: 50%;
+.cinput {
+	width: 50%;
 }
 
-.contact input{
-  width: 90%;
-  height: 50px;
-  
-  background-color: #000;
-  color: #fff;
+.contact input {
+	width: 90%;
+	height: 50px;
 
-  padding: 5px 20px;
+	background-color: #000;
+	color: #fff;
 
-  font-size: 1.3rem;
+	padding: 5px 20px;
+
+	font-size: 1.3rem;
 }
 
-.contact input[type="email"]{
-  margin-top: 20px;
-  width: 100%;
+.contact input[type="email"] {
+	margin-top: 20px;
+	width: 100%;
 }
 
-.contact input:focus{
-  border-left: 20px solid #EE4673;
-  letter-spacing: 2px;
+.contact input:focus {
+	border-left: 20px solid #ee4673;
+	letter-spacing: 2px;
 }
 
-.msg{
-  margin-top: 30px;
-  text-align: center;
+.msg {
+	margin-top: 30px;
+	text-align: center;
 }
 
-.msg textarea{
-  width: 100%;
-  height: 150px;
+.msg textarea {
+	width: 100%;
+	height: 150px;
 
-  resize: none;
-  
-  font-size: 1.6rem;
-  letter-spacing: 2px;
-  
-  padding: 10px;
+	resize: none;
 
-  background-color: #000;
-  color: #fff;  
+	font-size: 1.6rem;
+	letter-spacing: 2px;
+
+	padding: 10px;
+
+	background-color: #000;
+	color: #fff;
 }
 
-.msg textarea:focus{
-  background-color: rgba(217, 164, 4, .6);
+.msg textarea:focus {
+	background-color: rgba(217, 164, 4, .6);
 }
 
-.contact button{
-  margin-top: 10px;
-  padding: 4px 25px;
+.contact button {
+	margin-top: 10px;
+	padding: 4px 25px;
 
-  width: 200px;
+	width: 200px;
 
-  background-color: #EE4673;
-  color: #fff;
+	background-color: #ee4673;
+	color: #fff;
 
-  border: none;
-  border-radius: 10px;
+	border: none;
+	border-radius: 10px;
 
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 2px;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-weight: 800;
+	letter-spacing: 2px;
 
-  transition: 1s;
+	transition: 1s;
 }
 
-.contact button:hover{
-  background-color: #fff;
-  color: #EE4673;
+.contact button:hover {
+	background-color: #fff;
+	color: #ee4673;
 }
 
-.contact a{
-  all: unset;
+.contact a {
+	all: unset;
 }

@@ -103,22 +103,23 @@ export const fetchContacts = (param) => {
       dispatch(fetchContactsStart());
       const res = await axios.get("/conversations");
       dispatch(fetchContactsSuccess(res.data));
-    !param&&dispatch(addCoversations(res.data.docs));
+      !param && dispatch(addCoversations(res.data.docs));
     } catch (err) {
       dispatch(fetchContactsFail(err));
     }
   };
 };
 
-export const clearSuccess = () => {
+export const clearSuccess = (current) => {
   return {
     type: messageTypes.GET_CLEAR_CONTACTS,
+    current,
   };
 };
 
-export const clearContacts = () => {
+export const clearContacts = (current) => {
   return async (dispatch) => {
-    dispatch(clearSuccess());
+    dispatch(clearSuccess(current));
   };
 };
 export const changeInput = (input) => {
@@ -137,7 +138,7 @@ export const changingInput = (input) => {
 export const setCurrentConversationSuccess = (current) => {
   return {
     type: messageTypes.GET_CURRENT_CONVERSATION,
-    current
+    current,
   };
 };
 

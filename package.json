@@ -2,47 +2,59 @@
   "name": "g-project",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "@hookform/resolvers": "^2.5.0",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.4.0",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
+    "@ramonak/react-progress-bar": "^3.1.0",
+    "@react-leaflet/core": ">=1.0.0 <1.1.0 || ^1.1.1",
     "@reactchartjs/react-chart.js": "^1.0.0-rc.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.4",
     "@testing-library/user-event": "^12.6.3",
+    "@types/leaflet": "^1.7.4",
+    "@types/react": "^17.0.14",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "datepicker": "0.0.0",
     "emoji-picker-react": "^3.4.5",
+    "leaflet": "^1.7.1",
+    "leaflet-control-geocoder": "^1.13.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "qrcode": "^1.4.4",
     "react": "^17.0.1",
     "react-calendar": "^3.4.0",
-    "react-chartjs-2": "^2.7.0",
+    "react-chartjs-2": "^2.11.2",
     "react-datepicker": "^3.7.0",
     "react-dom": "^17.0.1",
-    "react-hook-form": "^7.6.0",
+    "react-hook-form": "^7.5.2",
     "react-inputs-validation": "^4.6.3",
+    "react-leaflet": "^3.1.0",
+    "react-leaflet-editable-popup": "^2.0.3",
     "react-media-hook": "^0.4.9",
     "react-phone-input-2": "^2.13.9",
     "react-redux": "^7.2.4",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-socket-io": "^0.2.5",
     "reactchartjs": "^0.7.3",
-    "redux": "^4.1.0",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "socket.io-client": "^4.1.2",
+    "socket.io-client": "^2.3.0",
+    "socketio-jwt": "^4.6.2",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.9"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -50,16 +62,9 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ]
 }

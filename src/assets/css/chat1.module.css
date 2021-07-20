@@ -105,13 +105,10 @@
 }
 .slide_three {
 	transform: translateX(750px);
-<<<<<<< HEAD
-=======
 	-webkit-transform: translateX(750px);
 	-moz-transform: translateX(750px);
 	-ms-transform: translateX(750px);
 	-o-transform: translateX(750px);
->>>>>>> 787ae156fc433a13949db2b496b3dc4c7d96c0e8
 }
 .slider_card {
 	border: 2px solid #d9a404;

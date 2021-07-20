@@ -11,9 +11,9 @@ const content = {
       placeholder: "Email Address",
     },
     {
-      name: "gym",
+      name: "about",
       type: "text",
-      placeholder: "Gym",
+      placeholder: "About",
     },
     {
       name: "phone",

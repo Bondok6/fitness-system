@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 /* Start Top Slider */
+
 .carousel-item {
 	position: relative;
 }
@@ -40,7 +41,7 @@
 	width: 38px;
 	top: 50vh;
 	margin: 0 10px;
-	padding: 0 2px;
+	padding: 6px;
 }
 .carousel-control-next {
 	right: 0;

@@ -1,45 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import chatCss from "../../assets/css/chat.module.css";
-import { useSelector, useDispatch } from "react-redux";
 import Contact from "./contact";
-import { changingInput, clearContacts } from "../../store";
+
 function Contacts(props) {
   const cons = useRef();
-  const contacts = useSelector((state) => state.reducer.contacts);
-  const conversations = useSelector((state) => state.reducer.conversations);
-
-  const current = useSelector((state) => state.reducer.current);
-
-  const input = useSelector((state) => state.reducer.input);
-
-  const dispatch = useDispatch();
-
-  const [myContact, setMyContact] = useState();
-
-  useEffect(() => {
-    if (input === "") cons.current.value = "";
-  }, [input]);
-
-  useEffect(() => {
-    dispatch(clearContacts(cons.current.value));
-    if (myContact !== current) {
-      setMyContact(current);
-      let conversation = conversations[current];
-      props.currentHandler(conversation);
-      props.current(current);
-    }
-  }, [current]);
-
-  const clickedHandler = (id,contact) => {
-    dispatch(clearContacts(cons.current.value));
-    if (myContact !== id) {
-      setMyContact(id);
-      let conversation = conversations[id];
-      props.currentHandler(conversation);
-      props.current(id);
-      props.setMyContactToMessage(contact)
-    }
-  };
 
   return (
     <div className={`col-md-4 ${chatCss.side_chat}`}>
@@ -50,26 +14,24 @@ function Contacts(props) {
             type="text"
             placeholder="Search Here"
             ref={cons}
-            onChange={(e) => dispatch(changingInput(e.target.value))}
+            // onChange={(e) => dispatch(changingInput(e.target.value))}
           />
         </div>
       </div>
       <div className={chatCss.all_friends}>
-        {contacts.docs
-          ? contacts.docs.map((c) => {
+        {props.contacts
+          ? props.contacts.map((c) => {
               return (
                 <Contact
-                  key={c._id}
-                  clickedHandler={clickedHandler}
-                  content={c.content}
-                  contact={myContact}
-                  info={
-                    parseInt(c.me2._id) !==
-                    parseInt(localStorage.getItem("userId"))
-                      ? c.me2
-                      : c.to
-                  }
+                  key={c.id}
+                  id={c.id}
+                  clickedHandler={props.currentHandler}
                   createdAt={c.createdAt}
+                  lastMessage={c.lastMessage}
+                  meta={c.meta}
+                  users={c.users}
+                  currentContact={props.currentContact}
+                  contact={c}
                 />
               );
             })
@@ -79,4 +41,4 @@ function Contacts(props) {
   );
 }
 
-export default Contacts;
+export default React.memo(Contacts);

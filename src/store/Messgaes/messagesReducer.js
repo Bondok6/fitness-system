@@ -93,7 +93,8 @@ export const reducer = (state = initialState, action) => {
     case messagesTypes.GET_CLEAR_CONTACTS:
       return{
         ...state,
-        input:"" 
+        input:"" ,
+        current:action.current
       } 
     case messagesTypes.GET_CURRENT_CONVERSATION:
       return{
