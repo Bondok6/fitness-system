@@ -22,12 +22,10 @@ body {
 	padding: 5px;
 	cursor: pointer;
 }
-
 .slider_container {
 	overflow: hidden;
 	/* border: 5px solid #000; */
 }
-
 .slider {
 	margin-top: 50px;
 	width: 120px;
@@ -47,11 +45,9 @@ body {
 
 	cursor: pointer;
 }
-
 .slider span {
 	position: relative;
 }
-
 .slider span::before {
 	content: "";
 	border: 9px solid #ee4673;

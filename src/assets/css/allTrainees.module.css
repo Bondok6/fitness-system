@@ -1,0 +1,265 @@
+/* .body{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #665e46), to(#fbe39a));
+	background: linear-gradient(#665e46 5%, #fbe39a);
+	min-height: 100vh;
+	font-family: Montserrat;
+} */
+
+.left_side {
+	position: fixed;
+	width: 8vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	margin-top: 35px;
+}
+
+.left_slider {
+	height: 60vh;
+	margin-top: 160px;
+	overflow: hidden;
+}
+
+.slider {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.slider img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	margin-bottom: 15px;
+	cursor: pointer;
+	transition: .5s;
+	filter: grayscale(100%);
+}
+.slider img:hover {
+	filter: grayscale(0%);
+}
+
+.arrows {
+	position: absolute;
+	font-size: 2rem;
+	color: #ee4673;
+	background-color: #222;
+	border: 1px solid #ee4673;
+	border-radius: 50%;
+	margin-left: 40px;
+	cursor: pointer;
+}
+
+.arrow_up {
+	top: 120px;
+}
+
+/* __________________________________________________________ */
+
+.comparison {
+	margin: 120px auto;
+}
+
+.profile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.profile__img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+}
+
+.profile__name {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+/* ________________________________________________________ */
+
+.outer_slider {
+	padding: 50px;
+	width: 1050px;
+	overflow: hidden;
+}
+
+.main_slider {
+	display: flex;
+	width: 100%;
+}
+
+.slide_one,
+.slide_two {
+	width: 100%;
+}
+.slide_three {
+	min-width: 80%;
+}
+.slide_one {
+	margin-left: 30%;
+}
+.slide_two {
+	transform: translateX(400px);
+}
+.slide_three {
+	transform: translateX(650px);
+}
+.slider_card {
+	border: 2px solid #d9a404;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 400px;
+	height: 450px;
+	padding: 20px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+.inner_slider {
+	display: flex;
+	width: 100%;
+}
+.slider_card img {
+	width: 350px;
+	height: 350px;
+	padding: 0 26px;
+}
+.month {
+	padding-top: 20px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 1.5rem;
+	font-family: Montserrat;
+	text-transform: capitalize;
+}
+.carousel_control_prev,
+.carousel_control_next {
+	border: 3px solid #f20544;
+	border-radius: 50%;
+	background-color: #000;
+	opacity: .8;
+	height: 35px;
+	width: 35px;
+	top: 50%;
+	margin: 0 20%;
+	padding: 5px;
+	cursor: pointer;
+}
+.arrow {
+	border: 2px solid #d9a404;
+	padding: 5px;
+	border-radius: 50%;
+	color: #fff;
+	background-color: #222;
+	cursor: pointer;
+}
+
+.arrow_forward {
+	float: right;
+}
+
+/* start table */
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid #e5b831;
+}
+
+.table td,
+.table th {
+	padding: 12px 15px;
+	text-align: center;
+	font-size: 1rem;
+	border: 1px solid #e5b831;
+}
+
+.table th,
+.table td:first-child {
+	background-color: #000;
+	color: #e5b831;
+	text-transform: capitalize;
+}
+
+.table td[data-label]:hover {
+	background-color: #e5b831;
+	cursor: pointer;
+	font-weight: bold;
+	transition: .6s;
+}
+
+@media (max-width: 500px) {
+	.table {
+		border: none;
+	}
+
+	.table thead {
+		display: none;
+	}
+
+	.table,
+	.table tbody,
+	.table tr,
+	.table td {
+		display: block;
+		width: 100%;
+	}
+
+	.table tr {
+		margin-bottom: 15px;
+	}
+
+	.table td {
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+
+	.table td::before {
+		content: attr(data-label);
+		position: absolute;
+		left: 0;
+		width: 50%;
+		padding-left: 15px;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: left;
+	}
+
+	.table td:first-child {
+		padding-left: 0;
+		text-align: center;
+	}
+}
+
+/*____________________________________________*/
+
+@media screen and (max-width: 1000px) {
+	.left_side,
+	.arrow {
+		display: none;
+	}
+	.outer_slider {
+		width: 100%;
+		overflow: visible;
+		padding: 0;
+	}
+	.main_slider {
+		flex-direction: column;
+	}
+	.slide_one,
+	.slide_two,
+	.slide_three {
+		all: unset;
+		margin-top: 35px;
+	}
+	.carousel_control_prev,
+	.carousel_control_next {
+		top: 40vh;
+		margin: 0;
+	}
+}

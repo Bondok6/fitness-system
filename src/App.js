@@ -23,6 +23,7 @@ import Chat from "./Components/Chat/chat";
 import { useDispatch } from "react-redux";
 import io from "socket.io-client";
 import Qr from "./Components/QRCode/qrCode";
+import allTrainees from "./Components/allTrainees";
 // import myTrainees from "./Components/trainer/myTrainees";
 
 function App() {
@@ -191,7 +192,7 @@ function App() {
             />
 
             <Route exact path="/searchTrainee" component={SearchTrainee} />
-            {/* <Route exact path="/myTrainees" component={myTrainees} /> */}
+            <Route exact path="/allTrainees" component={allTrainees} />
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/approvedTrainees" component={Approved} />
             <Route exact path="/searchTrainer" component={SearchTrainer} />
