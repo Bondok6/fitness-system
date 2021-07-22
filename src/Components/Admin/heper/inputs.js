@@ -25,6 +25,11 @@ const content = {
       type: "password",
       placeholder: "Password",
     },
+    {
+      name:"photo",
+      type:"file",
+      placeholder:"enter image"
+    }
   ],
 };
 export default content;

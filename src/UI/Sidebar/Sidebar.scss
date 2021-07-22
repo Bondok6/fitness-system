@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     background-color: rgba(0,0,0, 0.8);
-    z-index: 20;
+    z-index: 19800002710;
     backdrop-filter: blur(8px);
     height: 100%;
     width: 24%;
@@ -23,6 +23,7 @@
         height: 20%;
         margin-top: 28%;
         align-items: center;
+        padding-left: 0;
     }
 
     &__item {

@@ -5,18 +5,18 @@ import style from "../assets/css/navbar.module.css";
 import TocIcon from "@material-ui/icons/Toc";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
-import ChatIcon from '@material-ui/icons/Chat';
+import ChatIcon from "@material-ui/icons/Chat";
 import FaceIcon from "@material-ui/icons/Face";
 import Axios from "axios";
 import AuthContext from "../context/auth-context";
 import Spinner from "../UI/Spinner/Spinner";
-import AlertContext from '../context/alerts-context'
+import AlertContext from "../context/alerts-context";
 
 export const Nav = (props) => {
   const nav = useRef();
 
   const auth = useContext(AuthContext);
-  const alerts=useContext(AlertContext)
+  const alerts = useContext(AlertContext);
 
   const [notifications, setNotifications] = useState(0);
 
@@ -24,18 +24,17 @@ export const Nav = (props) => {
 
   const [loading, setLoading] = useState(false);
 
-
   useEffect(() => {
     if (auth.auth.role === "gym")
       Axios.get("count-requests").then((res) => {
         setNotifications(res.data);
       });
-  }, [auth.auth.role, loading,alerts]);
+  }, [auth.auth.role, loading, alerts]);
   useEffect(() => {
     if (auth.auth.role === "gym")
       Axios.get("fetch-requests").then((res) => {
         setRequests(res.data.docs);
-        alerts.alerts=res.data.docs
+        alerts.alerts = res.data.docs;
       });
   }, [auth.auth.role, loading, alerts]);
 
@@ -43,10 +42,23 @@ export const Nav = (props) => {
     requests.length > 0
       ? requests.map((request) => {
           return (
-            <div className={style.user} >
-              <img src={request.user.photo} className={style.user__image} onClick={()=>window.location.href=`/profile/${request.user.id}`} />
+            <div className={style.user}>
+              <img
+                src={request.user.photo}
+                className={style.user__image}
+                onClick={() =>
+                  (window.location.href = `/profile/${request.user.id}`)
+                }
+              />
               <div>
-                <div className={style.user__name} onClick={()=>window.location.href=`/profile/${request.user.id}`}>{request.user.username}</div>
+                <div
+                  className={style.user__name}
+                  onClick={() =>
+                    (window.location.href = `/profile/${request.user.id}`)
+                  }
+                >
+                  {request.user.username}
+                </div>
                 <button
                   className={style.accept}
                   onClick={() => {
@@ -126,7 +138,10 @@ export const Nav = (props) => {
                   <Link to="/videoCategories">categories</Link>
                 </li>
                 <li>
-                  <Link to="/approvedTrainees">My Trainees</Link>
+                  <Link to="/allTrainees">My Trainees</Link>
+                </li>
+                <li>
+                  <Link to="/approvedTrainees">Add Diet</Link>
                 </li>
                 <li>
                   <Link to="/searchTrainer">trainers</Link>
@@ -190,7 +205,6 @@ export const Nav = (props) => {
           ) : localStorage.getItem("token") && auth.auth.role === "trainee" ? (
             <div className={style.register}>
               <span className={style.signup}>
-
                 <Link to="/chat" className={style.icons}>
                   <ChatIcon />
                 </Link>

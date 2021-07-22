@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Profile/Profile/Profile.module.css';
+import s from '../Pages/Profile/Profile.module.css';
 
 function TraineeCard(props) {
 	return (

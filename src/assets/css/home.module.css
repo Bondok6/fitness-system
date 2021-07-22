@@ -388,6 +388,7 @@
 
 .cardimg {
 	width: 350px;
+	height: 230px;
 	border-radius: 20px 20px 0px 0px;
 }
 
@@ -405,6 +406,7 @@
 	background-color: #000;
 	padding: 10px;
 	border-radius: 0px 0px 20px 20px;
+	height: 85px;
 }
 
 .cardcaption h3 {

@@ -3,7 +3,7 @@
   background: linear-gradient(#665e46 5%, #FBE39A);
 } */
 
-/* ********************************** Start Profile **********************************/
+/* ************ Start Profile ************/
 .profile {
 	padding-top: 260px;
 
@@ -104,7 +104,7 @@
 	letter-spacing: 1px;
 	text-transform: capitalize;
 }
-/* _________________________________START UPDATE BUTTON ____________________________*/
+/* ____________START UPDATE BUTTON ___________*/
 .updateBtn {
 	border: none;
 	outline: none;
@@ -220,7 +220,7 @@
 	color: #000;
 }
 
-/* _________________________________End UPDATE BUTTON ____________________________*/
+/* ____________End UPDATE BUTTON ___________*/
 
 hr {
 	border: 3px solid #000;
@@ -424,7 +424,7 @@ hr {
 	border: 2px solid #d9a4047c;
 }
 
-/* ********************************** End Profile **********************************/
+/* ************ End Profile ************/
 
 /* start table */
 .table {
@@ -501,7 +501,7 @@ hr {
 		text-align: center;
 	}
 }
-/* ____________________________________________________*/
+/* __________________*/
 
 .Alert {
 	position: fixed;
@@ -541,7 +541,7 @@ hr {
 	color: #000;
 }
 
-/* __________________________________________________ */
+/* __________________ */
 
 .myFood {
 	display: flex;

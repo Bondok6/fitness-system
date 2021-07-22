@@ -161,15 +161,17 @@ function Profile(props) {
     if (system) {
       var indexOfStevie = dates.findIndex((i) => i.date === current);
       if (indexOfStevie !== 0) {
-        setCurrent(dates[indexOfStevie - 1].date);
         axios
           .get(
             props.match.params.id
-              ? `getSystemByDate?date=${current}&&id=${props.match.params.id}`
-              : `getSystemByDate?date=${current}`
+              ? `getSystemByDate?date=${dates[indexOfStevie - 1].date}&&id=${
+                  props.match.params.id
+                }`
+              : `getSystemByDate?date=${dates[indexOfStevie - 1].date}`
           )
           .then((res) => {
             setSystem(res.data);
+            setCurrent(dates[indexOfStevie - 1].date);
           })
           .catch((err) => {
             console.error(err);
@@ -182,15 +184,17 @@ function Profile(props) {
     if (system) {
       var indexOfStevie = dates.findIndex((i) => i.date === current);
       if (indexOfStevie !== dates.length - 1) {
-        setCurrent(dates[indexOfStevie + 1].date);
         axios
           .get(
             props.match.params.id
-              ? `getSystemByDate?date=${current}&&id=${props.match.params.id}`
-              : `getSystemByDate?date=${current}`
+              ? `getSystemByDate?date=${dates[indexOfStevie + 1].date}&&id=${
+                  props.match.params.id
+                }`
+              : `getSystemByDate?date=${dates[indexOfStevie + 1].date}`
           )
           .then((res) => {
             setSystem(res.data);
+            setCurrent(dates[indexOfStevie + 1].date);
           })
           .catch((err) => {
             console.error(err);

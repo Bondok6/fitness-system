@@ -29,6 +29,7 @@ const schema = yup.object().shape({
   about: yup.string().required(),
   password: yup.string().required(),
   email: yup.string().required().email(),
+  photo: yup.mixed().required(),
   phone: yup
     .number()
     .required()
@@ -106,7 +107,6 @@ function AddTrainer(props) {
   const height = { height: "30vh", width: "50vh" };
   const center = { lat: 51.5, lng: 0.12 };
   const clickHandler1 = (data, coorinates) => {
-    console.log(coordinates);
     setPlace(data);
     setCoordinates(coorinates);
   };
@@ -122,18 +122,21 @@ function AddTrainer(props) {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const onSubmit = async (data) => {
-    console.log(data)
-  
+
     const body = data;
+    body['photo']= data['photo'][0]
     const location = {
       type: "point",
       coordinates: [coordinates.lng, coordinates.lat],
     };
     body["location"] = location;
     body["gender"] = gender;
-    console.log(data);
-    const response = await axios.post("/add-gym", body);
-    console.log(response);
+
+    const form=new FormData();
+    for (const [key,value] of Object.entries(body)) {
+      form.append(`${key}`,value)
+    }
+    await axios.post("/add-gym", form);
   };
 
   console.log(errors);

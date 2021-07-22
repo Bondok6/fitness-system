@@ -103,10 +103,10 @@
 	margin-left: 30%;
 }
 .slide_two {
-	transform: translateX(400px);
+	transform: translateX(350px);
 }
 .slide_three {
-	transform: translateX(650px);
+	transform: translateX(600px);
 }
 .slider_card {
 	border: 2px solid #d9a404;

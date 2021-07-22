@@ -144,8 +144,8 @@ function Profile(props) {
     axios.get("/getUsers?limit=3").then((res) => {
       setTraineees(res.data.docs);
     });
-    axios.get("/fetch-gyms?limit=3").then((res) => {
-      setTrainers(res.data.docs);
+    axios.get("/get-recommendated-trainer").then((res) => {
+      setTrainers([res.data.trainer]);
     });
   }, []);
 
