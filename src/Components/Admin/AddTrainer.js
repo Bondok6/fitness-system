@@ -30,10 +30,12 @@ import graphImg from "../../images/design/graph-img.png";
 
 const schema = yup.object().shape({
   username: yup.string().required(),
+  gym: yup.string().required(),
   about: yup.string().required(),
   password: yup.string().required(),
   email: yup.string().required().email(),
   photo: yup.mixed().required(),
+  gymPhoto: yup.mixed().required(),
   phone: yup
     .number()
     .required()
@@ -127,6 +129,7 @@ function AddTrainer(props) {
   const onSubmit = async (data) => {
     const body = data;
     body["photo"] = data["photo"][0];
+    body["gymPhoto"] = data["gymPhoto"][0];
     // const location = {
     //   type: "Point",
     //   coordinates: [coordinates.lng, coordinates.lat],

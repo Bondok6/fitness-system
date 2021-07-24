@@ -138,6 +138,9 @@ export const Nav = (props) => {
                   <Link to="/videoCategories">categories</Link>
                 </li>
                 <li>
+                  <Link to="/Qr">Add Qr</Link>
+                </li>
+                <li>
                   <Link to="/allTrainees">My Trainees</Link>
                 </li>
                 <li>

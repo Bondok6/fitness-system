@@ -126,15 +126,15 @@ export class Signup extends Component {
         password: this.state.controls.password.value,
         email: this.state.controls.email.value,
         phone: phone,
-        age: this.state.age,
         gender: this.state.gender,
-        dryLeanMass: this.state.dryLean,
-        bodyFatMass: this.state.bodyFat,
-        time: this.state.time,
-        lostWeight: this.state.loseWeight,
-        initialWeight: this.state.weight,
-        totalBodyWater: this.state.totalBodyWater,
-        illness: this.state.illness,
+        age: parseFloat( this.state.age),
+        dryLeanMass: parseFloat( this.state.dryLean),
+        bodyFatMass: parseFloat( this.state.bodyFat),
+        time: parseFloat( this.state.time),
+        lostWeight: parseFloat( this.state.loseWeight),
+        initialWeight:parseFloat(  this.state.weight),
+        totalBodyWater: parseFloat( this.state.totalBodyWater),
+        illness: parseInt(this.state.illness),
       };
 
       axios({

@@ -8,6 +8,7 @@ import authContext from "../context/auth-context";
 function TraineeCard(props) {
   const [loadind, setLoading] = useState(false);
   const auth = useContext(authContext);
+  // console.log(props.requested , auth.auth.role)
 
   let button = (
     <div>
@@ -21,9 +22,10 @@ function TraineeCard(props) {
               axios
                 .post(`request?gym=${props.id}`)
                 .then((res) => {
-                  props.load(loadind);
+                  // props.load(loadind);
                   setLoading(false);
-                  console.log(res);
+                  window.location.href='/profile'
+                  // console.log(res);
                 })
                 .catch((err) => {
                   setLoading(false);

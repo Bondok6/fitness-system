@@ -6,6 +6,11 @@ const content = {
       placeholder: "Full Name",
     },
     {
+      name: "gym",
+      type: "text",
+      placeholder: "Gym Name",
+    },
+    {
       name: "email",
       type: "email",
       placeholder: "Email Address",
@@ -26,10 +31,15 @@ const content = {
       placeholder: "Password",
     },
     {
-      name:"photo",
-      type:"file",
-      placeholder:"enter image"
-    }
+      name: "photo",
+      type: "file",
+      placeholder: "Enter Your image",
+    },
+    {
+      name: "gymPhoto",
+      type: "file",
+      placeholder: "Enter Gym Image",
+    },
   ],
 };
 export default content;

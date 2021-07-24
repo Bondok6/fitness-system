@@ -170,7 +170,7 @@ export class Home extends Component {
         
                   <div className={style.card} key={i} >
                     <img
-                      src={gym.photo}
+                      src={gym.gymPhoto?gym.gymPhoto:gym1}
                       alt={gym._id}
                       className={style.cardimg}
                     />

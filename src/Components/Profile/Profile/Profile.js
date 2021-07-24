@@ -29,6 +29,7 @@ function generateRanges(startDate, endDate) {
 }
 
 function Profile(props) {
+  
   const [profile, setProfile] = useState();
   const imga = useRef();
   const labe = useRef();
@@ -52,6 +53,7 @@ function Profile(props) {
 
   const [trainees, setTraineees] = useState([]);
   const [trainers, setTrainers] = useState([]);
+  console.log(trainers)
 
   const [open, setOpen] = useState(false);
 
@@ -1339,6 +1341,7 @@ function Profile(props) {
                     username={trainer.username}
                     id={trainer.id}
                     key={trainer.id}
+                    requested={trainer.usersRequests}
                   />
                 );
               })
