@@ -12,13 +12,13 @@ function Table(props) {
 
   const [loadind, setLoading] = useState(false);
 
-
   const [fields1, setFields1] = useState([{ value: null, value1: null }]);
 
   function handleChange1(i, event, l) {
     const values = [...fields1];
+    console.log(event);
     if (l === 1) {
-      values[i].value1 = event.target.value;
+      values[i].value1 = moment(event).format("DD/MM/YYYY");
     } else {
       values[i].value = event.target.value;
     }
@@ -36,7 +36,6 @@ function Table(props) {
     values.splice(i, 1);
     setFields1(values);
   }
-
 
   useEffect(() => {
     let l = document.getElementsByTagName("td");
@@ -75,6 +74,7 @@ function Table(props) {
 
   const addHandler = () => {
     setLoading(true);
+
     let system = [];
     let l = document.getElementsByTagName("td");
     let time = document.getElementsByClassName("time");
@@ -91,12 +91,24 @@ function Table(props) {
         system[i].sys[j]["f"] = l[j * 7 + i].special_attribute;
       }
     }
+    // let path = {};
+    let weights = fields1.map((field) => {
+      return {
+        weight: parseFloat(field.value),
+        date: moment(field.value1).utc(),
+      };
+    });
+
+    weights = weights.filter((weight) => !isNaN(weight.weight));
+    // console.log(weights)
+
     axios
-      .put(`put-system?user=${props.match.params.id}`,{
-        system:{
-          date:moment(startDate).utc(),
-          system
-        }
+      .put(`put-system?user=${props.match.params.id}`, {
+        path: weights,
+        system: {
+          date: moment(startDate).utc(),
+          system,
+        },
       })
       .then((res) => {
         console.log(res);
@@ -107,6 +119,7 @@ function Table(props) {
         console.log(err);
         setLoading(false);
       });
+    // console.log(fields1)
   };
 
   let tab = (
@@ -185,25 +198,25 @@ function Table(props) {
       <h2 class={style.section_title}>Creat Diet Plan</h2>
 
       <button type="button" onClick={() => handleAdd1()} className="add">
-          +
-        </button>
-        {fields1.length > 1
-          ? fields1.map((field, idx) => {
-              if (idx !== 1) {
-                return (
-                  <div
-                    key={`${field}-${idx}`}
-                    style={{ display: "flex", alignItems: "center" }}
-                  >
-                    <input
-                      type="text"
-                      placeholder="Add Weight"
-                      className="Modal__input"
-                      value={field.value || ""}
-                      onChange={(e) => handleChange1(idx, e)}
-                      style={{ marginRight: "3px" }}
-                    />
-                    {/* <input
+        +
+      </button>
+      {fields1.length > 1
+        ? fields1.map((field, idx) => {
+            if (idx !== 1) {
+              return (
+                <div
+                  key={`${field}-${idx}`}
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <input
+                    type="text"
+                    placeholder="Add Weight"
+                    className="Modal__input"
+                    value={field.value || ""}
+                    onChange={(e) => handleChange1(idx, e)}
+                    style={{ marginRight: "3px" }}
+                  />
+                  {/* <input
                       type="number"
                       placeholder="Add Date"
                       className="Modal__input"
@@ -211,25 +224,28 @@ function Table(props) {
                       onChange={(e) => handleChange1(idx, e, 1)}
                       style={{ marginRight: "3px" }}
                     /> */}
-                     <div class={style.diet_date}>
-        <DatePicker
-          // selected={startDate}
-          value={field.value1 || ""}
-          onChange={(e) => handleChange1(idx, e, 1)}
-        />
-      </div>
-                    <button
-                      type="button"
-                      onClick={() => handleRemove1(idx)}
-                      className="remove"
-                    >
-                      X
-                    </button>
+                  <div class={style.diet_date}>
+                    <DatePicker
+                      // selected={startDate}
+                      value={field.value1 || ""}
+                      onChange={(e) => {
+                        // console.log(e)
+                        handleChange1(idx, e, 1);
+                      }}
+                    />
                   </div>
-                );
-              }
-            })
-          : ""}
+                  <button
+                    type="button"
+                    onClick={() => handleRemove1(idx)}
+                    className="remove"
+                  >
+                    X
+                  </button>
+                </div>
+              );
+            }
+          })
+        : ""}
 
       {/* <div class={style.diet_plan}>
         <label for=""> diet plan </label>
@@ -248,7 +264,9 @@ function Table(props) {
       </div>
 
       {tab}
-      <button className={style.btn} onClick={() => addHandler()}>add</button>
+      <button className={style.btn} onClick={() => addHandler()}>
+        add
+      </button>
     </div>
   );
 }

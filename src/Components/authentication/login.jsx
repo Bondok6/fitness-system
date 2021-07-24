@@ -102,7 +102,7 @@ export function Login(props) {
     <React.Fragment>
       {error ? <p className={style.Error}> {error} </p> : ""}
       <div className={style.login}>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} autoComplete="on">
           <div>
             <img src={logo} alt="logo-icon" className={style.logo} />
           </div>

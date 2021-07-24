@@ -28,9 +28,10 @@ function Messaging(props) {
 
   const onEmojiClick = (event, emojiObject) => {
     chosenEmoji.current = [...chosenEmoji.current, emojiObject];
-    setMessage(
-      chosenEmoji.current[chosenEmoji.current.length - 1].emoji + message
-    );
+    sms.current.value=chosenEmoji.current[chosenEmoji.current.length - 1].emoji + message
+    // setMessage(
+      
+    // );
     sms.current.value +=
       chosenEmoji.current[chosenEmoji.current.length - 1].emoji;
   };
@@ -43,10 +44,12 @@ function Messaging(props) {
     if (props.socket) {
       props.socket.on(`new message`, (body) => {
         setResultedMessages((prev) => {
-          return {
-            ...prev,
-            docs: [...prev.docs, body.message],
-          };
+          if (prev&&prev.docs) {
+            return {
+              ...prev,
+              docs: [...prev.docs, body.message],
+            };
+          }
         });
       });
     }
@@ -56,7 +59,6 @@ function Messaging(props) {
     var messageBody = document.querySelector("#messageBody");
     messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
   }, [resultedMessages]);
-
 
   return (
     <div class="col-md-8">
@@ -111,53 +113,53 @@ function Messaging(props) {
             : ""
           : ""}
       </div>
-{
-  resultedConract?
-
-      <div class={chatCss.chat_box}>
-        <div ref={emoji}>
-          <div
-            className={chatCss.emoji}
-            ref={emoj}
-            style={{ visibility: "hidden" }}
-          >
-            <Picker
-              onEmojiClick={onEmojiClick}
-              skinTone={SKIN_TONE_MEDIUM_DARK}
-            />
+      {resultedConract ? (
+        <div class={chatCss.chat_box}>
+          <div ref={emoji}>
+            <div
+              className={chatCss.emoji}
+              ref={emoj}
+              style={{ visibility: "hidden" }}
+            >
+              <Picker
+                onEmojiClick={onEmojiClick}
+                skinTone={SKIN_TONE_MEDIUM_DARK}
+              />
+            </div>
+            <IconButton onClick={openEmoji}>
+              <InsertEmoticon />
+            </IconButton>
           </div>
-          <IconButton onClick={openEmoji}>
-            <InsertEmoticon />
-          </IconButton>
-        </div>
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              emoj.current.style.visibility = "hidden";
-              props.addMessage(message);
-              setMessage("");
-              return (sms.current.value = "");
-            }
-          }}
-          onChange={(e) => setMessage(e.target.value)}
-          ref={sms}
-        />
+          <input
+            type="text"
+            placeholder="Type your message here..."
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                emoj.current.style.visibility = "hidden";
+                props.addMessage(sms.current.value);
+                // setMessage("");
+                return (sms.current.value = "");
+              }
+            }}
+            onChange={(e) => sms.current.value=e.target.value}
+            ref={sms}
+          />
 
-        <i
-          class="material-icons"
-          onClick={() => {
-            emoj.current.style.visibility = "hidden";
-            props.addMessage(message);
-            setMessage("");
-            return (sms.current.value = "");
-          }}
-        >
-          send
-        </i>
-      </div>:""
-}
+          <i
+            class="material-icons"
+            onClick={() => {
+              emoj.current.style.visibility = "hidden";
+              props.addMessage(sms.current.value);
+              // setMessage("");
+              return (sms.current.value = "");
+            }}
+          >
+            send
+          </i>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

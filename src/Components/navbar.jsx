@@ -104,7 +104,7 @@ export const Nav = (props) => {
   return (
     <React.Fragment>
       <header>
-        <nav className={style.navbar}>
+        <nav className={style.navbar} style={{marginTop:localStorage.getItem("token") && auth.auth.role === "admin" ?'15px':'',padding:localStorage.getItem("token") && auth.auth.role === "admin" ?'10px':''}}>
           <div className={style.toggler} onClick={() => props.openHandler()}>
             <TocIcon />
           </div>
@@ -150,6 +150,8 @@ export const Nav = (props) => {
                   <Link to="/searchTrainee">Users</Link>
                 </li>
               </ul>
+            ) : localStorage.getItem("token") && auth.auth.role === "admin" ? (
+              ""
             ) : (
               <ul>
                 <li>
@@ -211,6 +213,20 @@ export const Nav = (props) => {
                 <Link to="/profile" className={style.icons}>
                   <FaceIcon />
                 </Link>
+                <Link
+                  className={style.icons}
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    return (window.location.href = "/");
+                  }}
+                >
+                  <ExitToAppIcon />
+                </Link>
+              </span>
+            </div>
+          ) : localStorage.getItem("token") && auth.auth.role === "admin" ? (
+            <div className={style.register}>
+              <span className={style.signup}>
                 <Link
                   className={style.icons}
                   onClick={() => {

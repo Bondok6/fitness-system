@@ -24,6 +24,7 @@ body {
 	left: 0px;
 	cursor: pointer;
 }
+
 .graph__img {
 	width: 50px;
 	position: fixed;
@@ -31,9 +32,7 @@ body {
 	left: 8px;
 	cursor: pointer;
 }
-.hidden {
-	display: none;
-}
+
 .graph {
 	/* border: 1px solid #fff; */
 	display: flex;
@@ -114,7 +113,7 @@ body {
 /* Start add trainer */
 .information input {
 	width: 50%;
-	height: 35px;
+	height: 45px;
 
 	margin-bottom: 20px;
 	padding-left: 20px;
@@ -213,9 +212,11 @@ iframe {
 
 	background-color: #d9a404;
 
-	width: 120px;
+	width: 150px;
 
 	padding: 4px;
+	margin: 20px;
+	align-self: center;
 
 	font-size: 1rem;
 	font-family: "Oswald", sans-serif;
@@ -237,4 +238,8 @@ iframe {
 	text-align: left;
 	width: 50%;
 	margin-top: -20px;
+}
+
+input[type= "file"]{
+	width: 20vw;
 }

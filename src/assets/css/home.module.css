@@ -34,11 +34,6 @@
 .carousel-control-prev,
 .carousel-control-next {
 	position: absolute;
-	border: 2px solid #fff;
-	border-radius: 50%;
-	background-color: rgba(0, 0, 0, .8);
-	height: 38px;
-	width: 38px;
 	top: 50vh;
 	margin: 0 10px;
 	padding: 6px;
@@ -355,19 +350,27 @@
 	}
 }
 .recommend h2 {
-	text-align: center;
-	color: #fff;
+	width: fit-content;
+	margin: 0 auto;
 	margin-top: 100px;
+	padding: 10px 12px;
+
+	color: #fff;
+
 	text-transform: capitalize;
-	letter-spacing: 3px;
 	font-family: 'Oswald', sans-serif;
+	letter-spacing: 3px;
 	font-weight: 500;
+
+	border: 3px solid #d9a404;
+	border-radius: 12px;
+
 }
 
 .cards {
 	margin-top: 30px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
 }

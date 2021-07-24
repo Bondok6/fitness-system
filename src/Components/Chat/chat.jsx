@@ -68,7 +68,7 @@ function Chat() {
     if (slider) {
       slider.style.transform = "translateX(" + -size * counter + "px)";
     }
-    if (nextBtn&&contacts) {
+    if (nextBtn && contacts) {
       nextBtn.addEventListener("click", () => {
         if (counter == sliderImages.length - Object.values(contacts).length) return;
         slider.style.transition = "transform 0.4s ease-in-out";

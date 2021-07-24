@@ -3,6 +3,9 @@ import style from "../../assets/css/admin.module.css";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import bgImg from "../../images/design/ground-img.png";
+import addImg from "../../images/design/add-img.png";
+import graphImg from "../../images/design/graph-img.png";
 
 function Home(props) {
   const [trainer, setTrainer] = useState([0,0,0,0,0]);
@@ -75,7 +78,21 @@ function Home(props) {
     fetchHome();
   }, []);
 
+  const goToHome = () => {
+    window.location.href='/AdminHome'
+  }
+  
+  const goToAddTrainer = () => {
+    window.location.href='/AddTrainer'
+  }
+
   return (
+    <>
+     <div className={style.left_side}>
+        <img src={bgImg} alt="" className={style.ground__img}/>
+        <img src={addImg} alt="" className={style.add__img} onClick={()=>goToAddTrainer()}/>
+        <img src={graphImg} alt="" className={style.graph__img} onClick={()=>goToHome()}/>
+      </div>
     <section class={style.dash_section}>
       <h1 class={style.dash_title}>DashBoard</h1>
       <div class={style.dash}>
@@ -146,6 +163,7 @@ function Home(props) {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

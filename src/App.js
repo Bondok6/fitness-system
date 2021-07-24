@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useContext } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Home from "./Components/home";
 import Nav from "./Components/navbar";
 import Contact from "./Components/contactUs";
@@ -20,10 +20,12 @@ import Approved from "./Components/approvedTrainees";
 import AdminHome from "./Components/Admin/Home";
 import AddTrainer from "./Components/Admin/AddTrainer";
 import Chat from "./Components/Chat/chat";
-import { useDispatch } from "react-redux";
-import io from "socket.io-client";
+// import { useDispatch } from "react-redux";
 import Qr from "./Components/QRCode/qrCode";
 import AllTrainees from "./Components/allTrainees";
+import firebase from "./firebase";
+import axios from "axios";
+
 // import myTrainees from "./Components/trainer/myTrainees";
 
 function App() {
@@ -38,6 +40,27 @@ function App() {
   const [me, setMe] = useState({});
 
   let Auth = useContext(AuthCont);
+
+  //notification
+  useEffect(() => {
+    const messaging = firebase.messaging();
+    messaging
+      .requestPermission()
+      .then(() => {
+        return messaging.getToken();
+      })
+      .then(async (token) => {
+        console.log(token);
+        const res = await axios.post("/subscribe", {
+          token,
+          deviceType: "web",
+        });
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
     async function getProfile() {
@@ -86,18 +109,6 @@ function App() {
     setOpen2(false);
   }, []);
 
-  const [socket, setSocket] = useState();
-
-  // useEffect(() => {
-  //   const s = io("https://smartfitnessgym.herokuapp.com/chat");
-  //   s.on("connect", () => {
-  //     s.emit("authenticate", { token: localStorage.getItem("token") });
-  //   });
-
-  //   setSocket(s);
-  // }, []);
-
-  // console.log(me.role)
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -113,8 +124,8 @@ function App() {
           clickHandler={openHandler}
           closeHandler={closeHandler}
         />
-        {/* <Route exact path="/AdminHome" component={AdminHome} /> */}
-        {/* <Route exact path="/AddTrainer" component={AddTrainer} /> */}
+        {/* <Route exact path="/AdminHome" component={AdminHome} />
+        <Route exact path="/AddTrainer" component={AddTrainer} /> */}
         <PoPup
           open={open2}
           url={u}
@@ -165,6 +176,7 @@ function App() {
             <Route exact path="/online/:id" component={Online} />
             <Route exact path="/videoCategories" component={VideoCategory} />
             <Route exact path="/Videos/:id" component={Videos} />
+            <Route exact path="/chat" component={Chat} />
           </Switch>
         ) : isAuth && me.role === "gym" ? (
           <Switch>
@@ -191,14 +203,18 @@ function App() {
             />
 
             <Route exact path="/searchTrainee" component={SearchTrainee} />
-            <Route exact path="/allTrainees" render={(props) => (
+            <Route
+              exact
+              path="/allTrainees"
+              render={(props) => (
                 <AllTrainees
                   closeHandler2={closeHandler2}
                   openHandler2={openHandler2}
                   open2={open2}
                   {...props}
                 />
-              )} />
+              )}
+            />
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/approvedTrainees" component={Approved} />
             <Route exact path="/searchTrainer" component={SearchTrainer} />
@@ -225,6 +241,7 @@ function App() {
           <Switch>
             <Route exact path="/AdminHome" component={AdminHome} />
             <Route exact path="/AddTrainer" component={AddTrainer} />
+            <Redirect to="/AdminHome" />
           </Switch>
         ) : (
           <Switch>
@@ -237,7 +254,8 @@ function App() {
             />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/AddTrainer" component={AddTrainer} />
+            
+            {/* <Route exact path="/AddTrainer" component={AddTrainer} /> */}
           </Switch>
         )}
       </BrowserRouter>

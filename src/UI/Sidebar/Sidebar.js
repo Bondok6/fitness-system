@@ -1,9 +1,8 @@
-import React, { useEffect, useRef,useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
-import img from '../../images/Logo/icon.png'
+import img from "../../images/Logo/icon.png";
 import AuthContext from "../../context/auth-context";
-
 
 function Sidebar(props) {
   const auth = useContext(AuthContext);
@@ -29,56 +28,95 @@ function Sidebar(props) {
     <div className="Sidebar" ref={ele} onClick={(e) => clickHandler(e)}>
       <img className="Sidebar__logo" src={img} alt="ss" />
       <ul className="Sidebar__list">
-      {localStorage.getItem("token") && auth.auth.role === "trainee" ? (
-              <ul>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/">home</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/videoCategories">categories</Link>
-                </li>
+        {localStorage.getItem("token") && auth.auth.role === "trainee" ? (
+          <ul>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/">
+                home
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/videoCategories">
+                categories
+              </Link>
+            </li>
 
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/searchTrainer">trainers</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/searchTrainee">Users</Link>
-                </li>
-              </ul>
-            ) : localStorage.getItem("token") && auth.auth.role === "gym" ? (
-              <ul>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/">home</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/videoCategories">categories</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/allTrainees">My Trainees</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/approvedTrainees">Add Diet</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/searchTrainer">trainers</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/searchTrainee">Users</Link>
-                </li>
-              </ul>
-            ) : (
-              <ul>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/">home</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/contact">contact us</Link>
-                </li>
-                <li className="Sidebar__item">
-                  <Link className="Sidebar__link" to="/about">about</Link>
-                </li>
-              </ul>
-            )}
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/searchTrainer">
+                trainers
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/searchTrainee">
+                Users
+              </Link>
+            </li>
+          </ul>
+        ) : localStorage.getItem("token") && auth.auth.role === "gym" ? (
+          <ul>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/">
+                home
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/videoCategories">
+                categories
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/allTrainees">
+                My Trainees
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/approvedTrainees">
+                Add Diet
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/searchTrainer">
+                trainers
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/searchTrainee">
+                Users
+              </Link>
+            </li>
+          </ul>
+        ) : localStorage.getItem("token") && auth.auth.role === "admin" ? (
+          <ul>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/AddTrainer">
+                Add Trainer
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/contact">
+                AdminHome
+              </Link>
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/">
+                home
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/contact">
+                contact us
+              </Link>
+            </li>
+            <li className="Sidebar__item">
+              <Link className="Sidebar__link" to="/about">
+                about
+              </Link>
+            </li>
+          </ul>
+        )}
         {/* <li className="Sidebar__item">
           <Link className="Sidebar__link" to="/">
             {" "}

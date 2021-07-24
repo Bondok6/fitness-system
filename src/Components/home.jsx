@@ -50,6 +50,7 @@ export class Home extends Component {
       });
     }
   }
+  
 
   render() {
     // if (this.state.user) {
@@ -161,11 +162,12 @@ export class Home extends Component {
               </h4>
             </div>
             <button className={style.qrbtn}>learn more</button>
-            <h2>Recommended gym for you</h2>
+            <h2>We recommend to you</h2>
 
             <div className={style.cards}>
               {this.state.nearestGyms.length > 0 ? (
-                this.state.nearestGyms.map((gym,i) => (
+                this.state.nearestGyms.map((gym, i) => (          
+        
                   <div className={style.card} key={i} >
                     <img
                       src={gym.photo}
@@ -192,7 +194,8 @@ export class Home extends Component {
                           : ""}
                       </span>
                     </div>
-                  </div>
+                    </div>
+                 
                 ))
               ) : (
                 <>
