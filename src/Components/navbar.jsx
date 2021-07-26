@@ -147,9 +147,6 @@ export const Nav = (props) => {
                   <Link to="/approvedTrainees">Add Diet</Link>
                 </li>
                 <li>
-                  <Link to="/searchTrainer">trainers</Link>
-                </li>
-                <li>
                   <Link to="/searchTrainee">Users</Link>
                 </li>
               </ul>

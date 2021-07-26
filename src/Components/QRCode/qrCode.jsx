@@ -29,6 +29,7 @@ const QRcode = () => {
   const [imageId, setImageId] = useState('');
   const [videoSrc, setVideoSrc] = useState('');
   const [QrURL, setQrURL] = useState('');
+  const [category, setCategory] = useState('');
   let [progress, setProgress] = useState('');
 
   const defaultBtnActive = () => {
@@ -62,6 +63,7 @@ const QRcode = () => {
     const form = new FormData()
     form.append('title',text)
     form.append('video', videoSrc)
+    form.append('category', category)
     
     axios.post(`/add-video-qr`, form, {
       onUploadProgress: progressEvent => {
@@ -124,6 +126,18 @@ const QRcode = () => {
               placeholder="description"
               className={style.qr__inputDescription}
             />
+
+            <select name="categories"
+              className={style.categories}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="ABS Workout">ABS Workout</option>
+              <option value="Back Workout">Back Workout</option>
+              <option value="Leg Workout">Leg Workout</option>
+              <option value="Arms Workout">Arms Workout</option>
+              <option value="Face Workout">Face Workout</option>
+              <option value="Chest Workout">Chest Workout</option>
+            </select>
 
             <input
               type="file"

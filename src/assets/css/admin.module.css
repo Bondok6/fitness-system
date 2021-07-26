@@ -89,13 +89,12 @@ body {
 .dash__trainer,
 .dash__user {
 	width: 50vw;
-	height: 40vh;
 	background-color: #8d7d4e;
 	border-radius: 12px;
 	margin-bottom: 20px;
 	padding: 8px;
 
-	box-shadow: #242323 10px 10px;
+	/* box-shadow: #242323 10px 10px; */
 }
 
 .dash h2 {

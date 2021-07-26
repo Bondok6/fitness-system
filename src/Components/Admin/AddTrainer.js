@@ -108,7 +108,7 @@ function AddTrainer(props) {
   const [clear, setClear] = useState(false);
   const [gender, setGender] = useState("male");
 
-  const height = { height: "30vh", width: "50vh" };
+  const height = { height: "30vh", width: "50vw" };
   const center = { lat: 51.5, lng: 0.12 };
   const clickHandler1 = (data, coorinates) => {
     console.log(coorinates);

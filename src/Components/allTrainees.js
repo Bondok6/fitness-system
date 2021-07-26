@@ -154,13 +154,15 @@ function AllTrainees(props) {
 
     prevBtn.addEventListener("click", () => {
       if (counter <= 0) return;
-      slider.style.transition = "transform 0.4s ease-in-out";
-      counter--;
-      slider.style.transform = "translateX(" + -size * counter + "px)";
-      if (counter === 0) month.innerHTML = "Day 1";
-      month.innerHTML = `${moment(profile.images[counter].date).format(
-        "DD/MM/YYYY"
-      )}`;
+      if (profile) {
+        slider.style.transition = "transform 0.4s ease-in-out";
+        counter--;
+        slider.style.transform = "translateX(" + -size * counter + "px)";
+        if (counter === 0) month.innerHTML = "Day 1";
+        month.innerHTML = `${moment(profile.images[counter].date).format(
+          "DD/MM/YYYY"
+        )}`;
+      }
     });
 
     forwardBtn.addEventListener("click", () => {
